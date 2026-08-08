@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, MessageCircle } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -21,7 +22,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="tel:+91XXXXXXXXXX"
-              className="inline-flex items-center gap-2 rounded-sm bg-white px-5 py-2 text-xs font-semibold text-[#031738] shadow-sm transition-colors hover:bg-gray-100"
+              className="action-ripple action-ripple--call gap-2 px-5 py-2 text-xs font-semibold shadow-sm"
             >
               <Phone size={15} />
               Call us now
@@ -30,10 +31,10 @@ export default function Footer() {
               href="https://wa.me/91XXXXXXXXXX"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-sm border border-white px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-white/10"
+              className="action-ripple action-ripple--whatsapp gap-2 px-5 py-2 text-xs font-semibold shadow-sm"
             >
-              <MessageCircle size={15} className="text-green-400 fill-green-400/20" />
-              Chat on whatsapp
+              <FaWhatsapp size={17} aria-hidden="true" />
+              Chat on WhatsApp
             </a>
           </div>
         </div>
@@ -131,7 +132,7 @@ export default function Footer() {
 
             <a
               href="tel:+91XXXXXXXXXX"
-              className="inline-flex items-center gap-2 bg-white text-[#031738] px-5 py-2.5 rounded-sm font-semibold text-xs hover:bg-gray-100 transition-colors mt-3"
+              className="action-ripple action-ripple--call mt-3 gap-2 px-5 py-2.5 text-xs font-semibold shadow-sm"
             >
               <Phone size={14} />
               Call us now

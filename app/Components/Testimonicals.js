@@ -57,7 +57,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="bg-[#F8FAFC] py-12 md:py-16 px-4 sm:px-6 lg:px-12 font-sans relative">
+    <section id="testimonials" className="bg-[#F8FAFC] py-7 md:py-7 px-4 sm:px-6 lg:px-12 font-sans relative">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         
         {/* Top Badge */}

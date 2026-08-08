@@ -1,7 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { Phone, MessageCircle } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const slides = [
   {
@@ -100,7 +101,7 @@ export default function StackedHero() {
                   <div className="flex flex-wrap items-center gap-4 pt-2">
                     <a
                       href="tel:+91XXXXXXXXXX"
-                      className="inline-flex items-center gap-2 bg-white text-[#031738] px-6 py-2.5 rounded-md font-semibold text-sm hover:bg-gray-100 transition-colors shadow-md"
+                      className="action-ripple action-ripple--call gap-2 px-6 py-2.5 text-sm font-semibold shadow-md"
                     >
                       <Phone size={16} />
                       Call us now
@@ -109,10 +110,10 @@ export default function StackedHero() {
                       href="https://wa.me/91XXXXXXXXXX"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-white/80 text-white px-6 py-2.5 rounded-md font-semibold text-sm hover:bg-white/10 transition-colors backdrop-blur-sm"
+                      className="action-ripple action-ripple--whatsapp gap-2 px-6 py-2.5 text-sm font-semibold shadow-md"
                     >
-                      <MessageCircle size={16} className="text-green-400" />
-                      Chat on whatsapp
+                      <FaWhatsapp size={18} aria-hidden="true" />
+                      Chat on WhatsApp
                     </a>
                   </div>
                 )}

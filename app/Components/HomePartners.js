@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
 
 const partners = [
   {
@@ -31,8 +30,6 @@ const partners = [
 ];
 
 export default function TrustedPartners() {
-  const [hoveredPartner, setHoveredPartner] = useState(null);
-
   return (
     <section id="partners" className="bg-white px-6 py-10 font-sans sm:py-12 lg:px-12">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
@@ -50,23 +47,32 @@ export default function TrustedPartners() {
 
         {/* Partners Logos Grid */}
         <div className="mx-auto grid w-full max-w-5xl grid-cols-2 items-center justify-items-center gap-x-6 gap-y-5 md:grid-cols-4 md:gap-8">
-          {partners.map((partner) => (
+          {partners.map((partner, index) => (
             <div
               key={partner.name}
-              className="relative flex h-14 w-full max-w-[210px] items-center justify-center sm:h-16"
+              className="partner-logo-perspective relative flex h-16 w-full max-w-[210px] items-center justify-center sm:h-20"
+              style={{ '--partner-delay': `${index * 0.45}s` }}
             >
-              <Image
-                src={partner.logo}
-                alt={partner.name}
-                width={partner.width}
-                height={partner.height}
-                onMouseEnter={() => setHoveredPartner(partner.name)}
-                onMouseLeave={() => setHoveredPartner(null)}
-                className="max-h-12 w-auto object-contain transition-all duration-300 ease-out sm:max-h-20"
-                style={{
-                  transform: hoveredPartner === partner.name ? 'scale(1.05)' : 'scale(1)',
-                }}
-              />
+              <div className="partner-logo-rotator">
+                <div className="partner-logo-face">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={partner.width}
+                    height={partner.height}
+                    className="max-h-18 w-auto object-contain sm:max-h-20"
+                  />
+                </div>
+                <div className="partner-logo-face partner-logo-face--back" aria-hidden="true">
+                  <Image
+                    src={partner.logo}
+                    alt=""
+                    width={partner.width}
+                    height={partner.height}
+                    className="max-h-12 w-auto object-contain sm:max-h-16"
+                  />
+                </div>
+              </div>
             </div>
           ))}
         </div>

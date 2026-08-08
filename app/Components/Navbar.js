@@ -69,7 +69,7 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     onClick={() => setActiveTab(link.name)}
-                    className={`relative py-2 text-xs lg:text-sm font-semibold tracking-[-0.01em] transition-colors duration-200 ${
+                    className={`relative py-2 text-sm lg:text-[15px] font-semibold tracking-[-0.01em] transition-colors duration-200 ${
                       isActive
                         ? 'text-[#0B2545]'
                         : 'text-slate-600 hover:text-[#0B2545]'
@@ -91,7 +91,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center shrink-0">
             <a
               href="#contact"
-              className="bg-[#0B2545] text-white text-xs font-semibold px-5 py-2.5 rounded-md hover:bg-[#133663] transition-colors shadow-sm"
+              className="action-ripple action-ripple--contact px-5 py-2.5 text-xs font-semibold shadow-sm"
             >
               Contact
             </a>
@@ -146,7 +146,7 @@ export default function Navbar() {
                     setActiveTab(link.name);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`border-l-2 px-4 py-3 text-sm font-semibold transition-colors ${
+                  className={`border-l-2 px-4 py-3 text-[15px] font-semibold transition-colors ${
                     isActive
                       ? 'border-[#0B2545] bg-slate-100 text-[#0B2545]'
                       : 'border-transparent text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-[#0B2545]'
@@ -159,7 +159,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-4 bg-[#0B2545] px-4 py-3 text-center text-sm font-semibold text-white hover:bg-[#133663] transition-colors"
+              className="action-ripple action-ripple--contact mt-4 px-4 py-3 text-center text-sm font-semibold"
             >
               Contact
             </a>
