@@ -16,10 +16,28 @@ const slides = [
   },
   {
     id: 2,
-    title: 'Connecting campuses.',
-    highlightTitle: 'Simplifying student life.',
+    title: '',
+    highlightTitle: '',
     description: '',
-    bgImage: '/images/carouselimg1.png',
+    bgImage: '/images/carouselimg2.png',
+    showButtons: false,
+  },
+
+  {
+    id: 3,
+    title: '',
+    highlightTitle: '',
+    description: '',
+    bgImage: '/images/carouselimg3.png',
+    showButtons: false,
+  },
+
+  {
+    id: 4,
+    title: '',
+    highlightTitle: '',
+    description: '',
+    bgImage: '/images/carouselimg4.png',
     showButtons: false,
   },
   
@@ -129,10 +147,10 @@ export default function StackedHero() {
 
       {/* Continuous marquee below the carousel stack. */}
       <div
-        className="overflow-hidden bg-[#08265A] py-2.5 text-white"
+        className="h-32 overflow-hidden bg-[#08265A] text-white"
         aria-label="Partnering with Colleges and Universities. Creating Smart Laundry Experiences."
       >
-        <div className="carousel-marquee-track">
+        <div className="carousel-marquee-track h-full items-center">
           <span className="carousel-marquee-copy" aria-hidden="true">
             Partnering with Colleges &amp; Universities <b>•</b> Creating Smart Laundry Experiences <b>•</b>
           </span>

@@ -9,7 +9,7 @@ export default function VirtualTourSection() {
 
   return (
     <section className="relative bg-white py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-2 mb-6 sm:mb-8">
@@ -34,10 +34,11 @@ export default function VirtualTourSection() {
               <div className="relative w-full h-full bg-black">
                 {/* 1. Standard HTML5 Video Player */}
                 <video
-                  src="/images/booking-confirmation-background.mp4" // Replace with your video file path
+                  src="/images/booking-confirmation-background.mp4" 
                   className="w-full h-full object-cover"
                   controls
                   autoPlay
+                  muted
                 />
 
              

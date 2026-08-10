@@ -1,4 +1,5 @@
 import Herosection from './Components/Carousel'
+import About from './Components/HomeAbout'
 import CampusPartners from "./Components/CampusPartners";
 import Benefits from './Components/LaundryBenefits'
 import HowItWorksSection from "./Components/HowItWorksSection";
@@ -13,6 +14,7 @@ export default function Home() {
  <>
   <Herosection/>
   <ScrollReveal direction="up"><CampusPartners/></ScrollReveal>
+  <About/>
   <ScrollReveal direction="left"><WhyChoose/></ScrollReveal>
   <ScrollReveal direction="right"><Benefits/></ScrollReveal>
   <ScrollReveal direction="up"><HowItWorksSection/></ScrollReveal>

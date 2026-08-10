@@ -44,9 +44,9 @@ export default function Footer() {
       <div className="relative max-w-[1440px] mx-auto px-6 lg:px-12 pb-16 z-10">
         
         {/* Large Faded Background Watermark Text "TaerG" */}
-        <div className="absolute right-0 bottom-4 pointer-events-none z-0 opacity-[0.07] select-none overflow-hidden">
-          <span className="text-[160px] md:text-[240px] font-black tracking-normal text-white leading-none block transform translate-y-10">
-            TaerG
+        <div className="pointer-events-none absolute inset-x-0 bottom-4 z-0 flex select-none justify-center overflow-hidden text-center opacity-[0.07]">
+          <span className="block translate-y-10 whitespace-nowrap text-[140px] font-black leading-none tracking-normal text-white sm:text-[180px] md:text-[220px] lg:text-[250px]">
+            Taerg
           </span>
         </div>
 

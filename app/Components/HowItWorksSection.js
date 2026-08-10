@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { Sparkles, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -18,7 +18,7 @@ const steps = [
     title: "We collect your garments",
     subtitle: "Step 02",
     description: "Our dedicated team collects your laundry bag directly from your doorstep or designated campus location.",
-    image: "/images/ourprocessimg2.png", // Update with your actual image path
+    image: "/images/whychooseimg.png",
     tags: ["Doorstep Pickup", "Campus Service"]
   },
   {
@@ -26,7 +26,7 @@ const steps = [
     title: "We wash your garments",
     subtitle: "Step 03",
     description: "Your clothes are washed using high-quality detergents and eco-friendly machinery to ensure optimal hygiene and fabric care.",
-    image: "/images/ourprocessimg2.png", // Update with your actual image path
+    image: "/images/carouselimg1.png",
     tags: ["Hygienic Wash", "Eco-Friendly"]
   },
   {
@@ -42,6 +42,8 @@ const steps = [
 
 export default function HowItWorksSection() {
   const [activeStep, setActiveStep] = useState(0);
+  const sectionRef = useRef(null);
+  const lastScrollControlRef = useRef(0);
 
   const handleNext = useCallback(() => {
     setActiveStep((prev) => (prev + 1) % steps.length);
@@ -54,15 +56,63 @@ export default function HowItWorksSection() {
   // Auto-scroll timer (3 seconds)
   useEffect(() => {
     const timer = setInterval(() => {
-      handleNext();
+      if (Date.now() - lastScrollControlRef.current > 1400) {
+        handleNext();
+      }
     }, 3000);
 
     return () => clearInterval(timer);
   }, [handleNext]);
 
+  useEffect(() => {
+    let frameId = null;
+
+    const updateStepFromScroll = () => {
+      if (frameId !== null) return;
+
+      frameId = window.requestAnimationFrame(() => {
+        frameId = null;
+        const section = sectionRef.current;
+
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+        const scrollRange = Math.max(section.offsetHeight - window.innerHeight, 1);
+        const isScrollControlled = rect.top <= 0 && rect.bottom >= window.innerHeight;
+
+        if (!isScrollControlled) return;
+
+        const progress = Math.min(0.999, Math.max(0, -rect.top / scrollRange));
+        const nextStep = Math.min(
+          steps.length - 1,
+          Math.floor(progress * steps.length),
+        );
+
+        lastScrollControlRef.current = Date.now();
+        setActiveStep((currentStep) =>
+          currentStep === nextStep ? currentStep : nextStep,
+        );
+      });
+    };
+
+    updateStepFromScroll();
+    window.addEventListener("scroll", updateStepFromScroll, { passive: true });
+    window.addEventListener("resize", updateStepFromScroll);
+
+    return () => {
+      window.removeEventListener("scroll", updateStepFromScroll);
+      window.removeEventListener("resize", updateStepFromScroll);
+
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+    };
+  }, []);
+
   return (
-    <section className="bg-slate-50 py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section ref={sectionRef} className="relative h-[400svh] bg-slate-50 lg:h-[400vh]">
+      <div className="sticky top-0 flex min-h-screen items-center px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+      <div className="max-w-6xl mx-auto w-full">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 sm:mb-8 border-b border-gray-200 pb-5">
@@ -91,10 +141,11 @@ export default function HowItWorksSection() {
               
               {/* Active Image */}
               <Image
+                key={steps[activeStep].id}
                 src={steps[activeStep].image}
                 alt={steps[activeStep].title}
                 fill
-                className="object-cover transition-all duration-500 ease-in-out"
+                className="process-step-image object-cover"
                 priority
               />
 
@@ -244,6 +295,7 @@ export default function HowItWorksSection() {
 
         </div>
 
+      </div>
       </div>
     </section>
   );

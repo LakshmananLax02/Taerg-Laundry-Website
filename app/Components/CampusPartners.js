@@ -109,9 +109,9 @@ export default function CampusPartners() {
 
                 {/* Institution Details */}
                 <div className="relative z-10">
-                  <h3 className="text-xl font-bold text-[#0a1b3d] transition-colors duration-300 group-hover:text-white">{item.name}</h3>
-                  <p className="text-xs font-medium text-gray-600 transition-colors duration-300 group-hover:text-blue-100">{item.fullName}</p>
-                  <p className="mt-0.5 text-[11px] text-gray-400 transition-colors duration-300 group-hover:text-blue-200">{item.location}</p>
+                  <h3 className="text-xl font-bold text-[#0a1b3d]">{item.name}</h3>
+                  <p className="text-xs font-medium text-gray-600">{item.fullName}</p>
+                  <p className="mt-0.5 text-[11px] text-gray-400">{item.location}</p>
                 </div>
               </div>
             ))}
