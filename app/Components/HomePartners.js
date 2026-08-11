@@ -41,7 +41,7 @@ export default function TrustedPartners() {
         </div>
 
         {/* Section Heading */}
-        <h2 className="mb-7 text-3xl font-semibold leading-tight tracking-tight text-[#0B2545] sm:text-4xl md:mb-8 lg:text-5xl">
+        <h2 className="section-topic mb-7 text-[#0B2545] md:mb-8">
           Trusted Partners
         </h2>
 

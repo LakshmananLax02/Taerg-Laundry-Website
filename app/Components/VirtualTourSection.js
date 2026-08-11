@@ -18,7 +18,7 @@ export default function VirtualTourSection() {
             Interactive Experience
           </div>
 
-          <h2 className="text-3xl font-semibold leading-tight tracking-tight text-[#0a1b3d] sm:text-4xl lg:text-5xl">
+          <h2 className="section-topic text-[#0a1b3d]">
             Take A Virtual Tour Of Our Campus Laundry
           </h2>
         </div>

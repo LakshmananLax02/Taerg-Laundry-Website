@@ -51,12 +51,14 @@ const steps = [
 
 export default function HowItWorksSection() {
   const [activeStep, setActiveStep] = useState(0);
+  const [hasEntered, setHasEntered] = useState(false);
   const sectionRef = useRef(null);
 
   const scrollToStep = useCallback((nextIndex) => {
     const section = sectionRef.current;
     const index = Math.max(0, Math.min(steps.length - 1, nextIndex));
 
+    setHasEntered(true);
     setActiveStep(index);
 
     if (!section) return;
@@ -90,8 +92,15 @@ export default function HowItWorksSection() {
           steps.length - 1,
           Math.floor(progress * steps.length),
         );
+        const isEngaged =
+          rect.top <= window.innerHeight * 0.35 &&
+          rect.bottom >= window.innerHeight * 0.35;
 
-        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+        setHasEntered((current) =>
+          current === isEngaged ? current : isEngaged,
+        );
+
+        if (isEngaged) {
           setActiveStep((currentStep) =>
             currentStep === nextStep ? currentStep : nextStep,
           );
@@ -126,7 +135,7 @@ export default function HowItWorksSection() {
             </div>
             <h2
               id="process-title"
-              className="mt-2 text-2xl font-semibold leading-tight tracking-tight text-[#0a1b3d] sm:text-3xl lg:text-4xl 2xl:text-5xl"
+              className="section-topic mt-2 text-[#0a1b3d]"
             >
               How Taerg Laundry Helps Students
             </h2>
@@ -136,18 +145,17 @@ export default function HowItWorksSection() {
             <div className="relative min-h-0 overflow-hidden rounded-2xl border border-slate-200 bg-[#071a3a] shadow-[0_22px_55px_-32px_rgba(3,23,56,0.7)] lg:col-span-7">
               {steps.map((step, index) => {
                 const isActive = index === activeStep;
-                const hasPassed = index < activeStep;
+                const isRevealed = hasEntered && index <= activeStep;
 
                 return (
                   <div
                     key={step.id}
                     aria-hidden={!isActive}
-                    className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
-                      isActive
-                        ? "translate-y-0 scale-100 opacity-100"
-                        : hasPassed
-                          ? "-translate-y-[7%] scale-[1.025] opacity-0"
-                          : "translate-y-[7%] scale-[1.025] opacity-0"
+                    style={{ zIndex: index + 1 }}
+                    className={`absolute inset-0 will-change-transform transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                      isRevealed
+                        ? "translate-x-0"
+                        : "-translate-x-[105%]"
                     }`}
                   >
                     <Image
@@ -163,12 +171,12 @@ export default function HowItWorksSection() {
                 );
               })}
 
-              <div className="absolute left-3 top-3 z-20 inline-flex items-center gap-1.5 rounded-full bg-white/92 px-3 py-1 text-[11px] font-semibold text-[#0a1b3d] shadow-sm backdrop-blur-md sm:left-4 sm:top-4">
+              <div className={`absolute left-3 top-3 z-20 inline-flex items-center gap-1.5 rounded-full bg-white/92 px-3 py-1 text-[11px] font-semibold text-[#0a1b3d] shadow-sm backdrop-blur-md transition-opacity duration-500 sm:left-4 sm:top-4 ${hasEntered ? "opacity-100" : "opacity-0"}`}>
                 <Sparkles className="h-3 w-3 text-blue-600" />
                 Step {steps[activeStep].id} of {String(steps.length).padStart(2, "0")}
               </div>
 
-              <div className="pointer-events-none absolute inset-x-2 inset-y-0 z-30 flex items-center justify-between sm:inset-x-3">
+              <div className={`pointer-events-none absolute inset-x-2 inset-y-0 z-30 flex items-center justify-between transition-opacity duration-500 sm:inset-x-3 ${hasEntered ? "opacity-100" : "opacity-0"}`}>
                 <button
                   type="button"
                   onClick={() => scrollToStep(activeStep - 1)}
@@ -189,7 +197,7 @@ export default function HowItWorksSection() {
                 </button>
               </div>
 
-              <div className="absolute inset-x-4 bottom-4 z-20 sm:inset-x-6 sm:bottom-5 lg:hidden">
+              <div className={`absolute inset-x-4 bottom-4 z-20 transition-opacity duration-500 sm:inset-x-6 sm:bottom-5 lg:hidden ${hasEntered ? "opacity-100" : "opacity-0"}`}>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-blue-300">
                   {steps[activeStep].subtitle}
                 </p>
@@ -202,18 +210,17 @@ export default function HowItWorksSection() {
             <div className="relative min-h-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_18px_45px_-34px_rgba(3,23,56,0.55)] lg:col-span-5">
               {steps.map((step, index) => {
                 const isActive = index === activeStep;
-                const hasPassed = index < activeStep;
+                const isRevealed = hasEntered && index <= activeStep;
 
                 return (
                   <article
                     key={step.id}
                     aria-hidden={!isActive}
-                    className={`absolute inset-0 flex flex-col justify-center px-5 py-4 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none sm:px-7 lg:px-8 xl:px-10 ${
-                      isActive
-                        ? "translate-y-0 opacity-100"
-                        : hasPassed
-                          ? "-translate-y-8 opacity-0"
-                          : "translate-y-8 opacity-0"
+                    style={{ zIndex: index + 1 }}
+                    className={`absolute inset-0 flex flex-col justify-center bg-white px-5 py-4 will-change-transform transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none sm:px-7 lg:px-8 xl:px-10 ${
+                      isRevealed
+                        ? "translate-x-0"
+                        : "translate-x-[105%]"
                     }`}
                   >
                     <div className="hidden lg:block">
@@ -249,7 +256,7 @@ export default function HowItWorksSection() {
                 );
               })}
 
-              <div className="absolute inset-x-5 bottom-3 z-20 flex items-center gap-2 sm:inset-x-7 lg:bottom-5 lg:px-1 xl:inset-x-10">
+              <div className={`absolute inset-x-5 bottom-3 z-20 flex items-center gap-2 transition-opacity duration-500 sm:inset-x-7 lg:bottom-5 lg:px-1 xl:inset-x-10 ${hasEntered ? "opacity-100" : "opacity-0"}`}>
                 {steps.map((step, index) => (
                   <button
                     key={step.id}

@@ -22,6 +22,22 @@ body {
   }
 }
 
+/* Shared visual language for every primary homepage section heading. */
+.section-topic {
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+  .section-topic {
+    font-size: clamp(2rem, 10vw, 2.75rem);
+    line-height: 1.08;
+  }
+}
+
 .home-scroll-reveal {
   --reveal-x: 0;
   --reveal-y: 34px;

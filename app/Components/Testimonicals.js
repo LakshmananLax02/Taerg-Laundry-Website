@@ -68,7 +68,7 @@ export default function Testimonials() {
 
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-10">
-          <h2 className="mb-2 text-3xl font-semibold leading-tight tracking-tight text-[#031738] md:text-4xl lg:text-5xl">
+          <h2 className="section-topic mb-2 text-[#031738]">
             Loved by Students, Trusted Every Day
           </h2>
           <p className="text-gray-500 text-xs md:text-sm font-light">

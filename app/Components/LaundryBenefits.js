@@ -66,7 +66,7 @@ export default function LaundryBenefits() {
                 Campus Benefits
               </div>
 
-              <h2 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              <h2 className="section-topic">
                 Benefits of Campus Laundry Service
               </h2>
 

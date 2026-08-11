@@ -75,17 +75,17 @@ export default function StackedHero() {
 
           {/* Card Content Grid */}
           <div
-            className={`relative z-10 h-full w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col text-white ${
+            className={`${
               slide.description || slide.showButtons
-                ? 'justify-center py-8 lg:py-0'
-                : 'items-center justify-center text-center'
+                ? 'relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-center px-6 py-8 text-white lg:px-12 lg:py-0'
+                : 'absolute inset-0 z-10 flex items-center justify-center px-6 text-center text-white lg:px-12'
             }`}
           >
             <div
-              className={`grid grid-cols-1 gap-8 items-center ${
+              className={`${
                 slide.description || slide.showButtons
-                  ? 'lg:grid-cols-12'
-                  : 'w-full place-items-center text-center'
+                  ? 'grid grid-cols-1 items-center gap-8 lg:grid-cols-12'
+                  : 'flex h-full w-full items-center justify-center text-center'
               }`}
             >
               
@@ -97,17 +97,9 @@ export default function StackedHero() {
                     : 'w-full max-w-none text-center'
                 }`}
               >
-                <h1
-                  className={`text-3xl leading-tight tracking-tight md:text-5xl lg:text-6xl ${
-                    slide.id === 1 ? 'font-semibold' : 'font-normal'
-                  }`}
-                >
+                <h1 className="text-3xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
                   {slide.title}
-                  <span
-                    className={`mt-1 block text-gray-200 ${
-                      slide.id === 1 ? 'font-semibold' : 'font-light'
-                    }`}
-                  >
+                  <span className="mt-1 block text-gray-200">
                     {slide.highlightTitle}
                   </span>
                 </h1>

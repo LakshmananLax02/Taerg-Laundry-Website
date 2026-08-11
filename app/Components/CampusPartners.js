@@ -66,7 +66,7 @@ export default function CampusPartners() {
               Our Campus Partners
             </div>
             
-            <h2 className="text-3xl font-semibold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+            <h2 className="section-topic text-gray-900">
               Trusted by Leading Educational Institutions
             </h2>
             
