@@ -111,33 +111,29 @@ export default function HowItWorksSection() {
 
   return (
     <section ref={sectionRef} className="relative h-[400svh] bg-slate-50 lg:h-[400vh]">
-      <div className="sticky top-0 flex min-h-screen items-center px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-      <div className="max-w-6xl mx-auto w-full">
+      <div className="sticky top-20 flex h-[calc(100svh-5rem)] items-center overflow-hidden px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 sm:mb-8 border-b border-gray-200 pb-5">
-          <div className="space-y-2">
+        <div className="mb-4 flex flex-col items-center border-b border-gray-200 pb-4 text-center sm:mb-5">
+          <div className="flex flex-col items-center space-y-2">
             <div className="inline-flex items-center gap-1.5 bg-[#0a1b3d] text-white px-3 py-1 rounded-full text-xs font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
               Our Process
             </div>
             
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0a1b3d] tracking-tight">
+            <h2 className="text-3xl font-semibold leading-tight tracking-tight text-[#0a1b3d] sm:text-4xl lg:text-5xl [@media(max-height:700px)]:text-4xl">
               How Taerg Laundry Helps Students
             </h2>
           </div>
-
-          <p className="text-gray-600 text-xs sm:text-base max-w-md leading-relaxed">
-            Partnering with forward-thinking campuses to deliver world-class laundry infrastructure and student experiences.
-          </p>
         </div>
 
         {/* Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
+        <div className="grid grid-cols-1 items-stretch gap-5 sm:gap-6 lg:h-[clamp(300px,42svh,380px)] lg:grid-cols-12">
           
           {/* LEFT COLUMN: Main Image Display */}
-          <div className="lg:col-span-6 flex flex-col">
-            <div className="relative w-full h-full min-h-[320px] sm:min-h-[380px] rounded-2xl overflow-hidden shadow-md border border-gray-200 group">
+          <div className="flex flex-col lg:col-span-6">
+            <div className="group relative h-full min-h-[320px] w-full overflow-hidden rounded-2xl border border-gray-200 shadow-md sm:min-h-[380px] lg:min-h-0">
               
               {/* Active Image */}
               <Image
@@ -182,7 +178,7 @@ export default function HowItWorksSection() {
                 <p className="text-[10px] font-semibold text-blue-300 tracking-wider uppercase">
                   {steps[activeStep].subtitle}
                 </p>
-                <h3 className="text-base sm:text-xl font-bold leading-snug">
+                <h3 className="text-base font-semibold leading-snug sm:text-xl">
                   {steps[activeStep].title}
                 </h3>
 
@@ -203,9 +199,9 @@ export default function HowItWorksSection() {
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="lg:col-span-6 flex flex-col justify-between">
+          <div className="flex flex-col justify-center lg:col-span-6">
             
-            {/* 1. MOBILE ONLY VIEW: Show ONLY 1 active step card */}
+            {/* MOBILE ONLY VIEW: Show ONLY 1 active step card */}
             <div className="block lg:hidden">
               <div className="relative p-4 rounded-xl bg-white border-2 border-blue-500 shadow-md">
                 <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-600 rounded-l-xl" />
@@ -230,8 +226,8 @@ export default function HowItWorksSection() {
               </div>
             </div>
 
-            {/* 2. DESKTOP ONLY VIEW: Show ALL 4 step cards with Hover effect */}
-            <div className="hidden lg:flex flex-col justify-between h-full gap-2.5">
+            {/* DESKTOP ONLY VIEW: Show ALL 4 step cards */}
+            <div className="hidden h-full flex-col justify-center gap-2.5 lg:flex">
               {steps.map((step, index) => {
                 const isActive = activeStep === index;
                 return (
@@ -239,49 +235,52 @@ export default function HowItWorksSection() {
                     key={step.id}
                     onMouseEnter={() => setActiveStep(index)}
                     onClick={() => setActiveStep(index)}
-                    className={`group relative flex-1 p-3.5 sm:p-4 rounded-xl cursor-pointer transition-all duration-200 border flex items-center ${
-                      isActive 
-                        ? "bg-white border-blue-500/60 shadow-md scale-[1.01]" 
-                        : "bg-white/70 hover:bg-white border-gray-200/80 shadow-xs"
+                    className={`group relative flex min-h-0 flex-1 cursor-pointer items-center rounded-xl border p-2.5 transition-all duration-200 2xl:p-3.5 ${
+                      isActive
+                        ? "scale-[1.01] border-blue-500/60 bg-white shadow-md"
+                        : "border-gray-200/80 bg-white/70 shadow-xs hover:bg-white"
                     }`}
                   >
-                    {/* Active Accent Border */}
-                    <div 
-                      className={`absolute left-0 top-0 bottom-0 w-1 rounded-l-xl transition-colors duration-200 ${
+                    <div
+                      className={`absolute bottom-0 left-0 top-0 w-1 rounded-l-xl transition-colors duration-200 ${
                         isActive ? "bg-blue-600" : "bg-transparent group-hover:bg-gray-300"
                       }`}
                     />
 
-                    <div className="flex items-center gap-3.5 w-full">
-                      {/* Step Number Badge */}
-                      <div 
-                        className={`w-9 h-9 rounded-lg flex items-center justify-center font-bold text-sm transition-all duration-200 flex-shrink-0 ${
-                          isActive 
-                            ? "bg-[#0a1b3d] text-white shadow-sm" 
+                    <div className="flex w-full items-center gap-3.5">
+                      <div
+                        className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg text-sm font-bold transition-all duration-200 ${
+                          isActive
+                            ? "bg-[#0a1b3d] text-white shadow-sm"
                             : "bg-slate-100 text-gray-500 group-hover:bg-slate-200 group-hover:text-gray-900"
                         }`}
                       >
                         {step.id}
                       </div>
 
-                      {/* Content */}
-                      <div className="flex-1 min-w-0">
+                      <div className="min-w-0 flex-1">
                         <div className="flex items-center justify-between gap-2">
-                          <h4 className={`font-semibold text-sm sm:text-base transition-colors truncate ${
-                            isActive ? "text-[#0a1b3d]" : "text-gray-800"
-                          }`}>
+                          <h4
+                            className={`truncate text-sm font-semibold transition-colors sm:text-base ${
+                              isActive ? "text-[#0a1b3d]" : "text-gray-800"
+                            }`}
+                          >
                             {step.title}
                           </h4>
-                          <ArrowRight className={`w-3.5 h-3.5 flex-shrink-0 transition-all duration-200 ${
-                            isActive 
-                              ? "text-blue-600 opacity-100 translate-x-0.5" 
-                              : "text-gray-400 opacity-0 group-hover:opacity-100"
-                          }`} />
+                          <ArrowRight
+                            className={`h-3.5 w-3.5 flex-shrink-0 transition-all duration-200 ${
+                              isActive
+                                ? "translate-x-0.5 text-blue-600 opacity-100"
+                                : "text-gray-400 opacity-0 group-hover:opacity-100"
+                            }`}
+                          />
                         </div>
 
-                        <p className={`text-xs mt-0.5 transition-all duration-200 ${
-                          isActive ? "text-gray-600 line-clamp-2" : "text-gray-400 line-clamp-1"
-                        }`}>
+                        <p
+                          className={`mt-0.5 text-xs transition-all duration-200 ${
+                            isActive ? "line-clamp-2 text-gray-600" : "line-clamp-1 text-gray-400"
+                          }`}
+                        >
                           {step.description}
                         </p>
                       </div>

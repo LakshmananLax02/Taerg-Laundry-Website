@@ -11,8 +11,8 @@ export default function Footer() {
       
       {/* 1. Call to Action Card */}
       <div className="bg-[linear-gradient(to_bottom,#ffffff_0%,#ffffff_48%,#031738_48%,#031738_100%)] px-5 pb-10 pt-6 sm:px-8 lg:px-12">
-        <div className="relative z-20 mx-auto max-w-6xl rounded-sm border-2 border-white/90 bg-[#1B3673] px-6 py-7 text-center shadow-2xl sm:px-8 md:px-12 md:py-9">
-          <h2 className="mx-auto mb-3 max-w-2xl text-2xl font-normal leading-tight tracking-wide text-white md:text-4xl">
+        <div className="relative z-20 mx-auto max-w-6xl rounded-lg border-2 border-white/90 bg-[#1B3673] px-6 py-7 text-center shadow-2xl sm:px-8 md:px-12 md:py-9">
+          <h2 className="mx-auto mb-3 max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
             Ready to Transform Your Campus Laundry?
           </h2>
           <p className="mx-auto mb-6 max-w-xl text-xs font-light leading-relaxed text-gray-200 md:text-sm">
@@ -55,7 +55,7 @@ export default function Footer() {
           
           {/* Quick Links */}
           <div className="min-w-0 lg:col-span-2">
-            <h3 className="text-xs font-bold tracking-widest text-white uppercase mb-6">
+            <h3 className="mb-6 text-xs font-semibold uppercase tracking-widest text-white">
               QUICK LINKS
             </h3>
             <ul className="space-y-4 text-xs md:text-sm text-gray-300 font-light">
@@ -68,7 +68,7 @@ export default function Footer() {
 
           {/* Solutions */}
           <div className="min-w-0 lg:col-span-3">
-            <h3 className="text-xs font-bold tracking-widest text-white uppercase mb-6">
+            <h3 className="mb-6 text-xs font-semibold uppercase tracking-widest text-white">
               SOLUTIONS
             </h3>
             <ul className="space-y-4 text-xs md:text-sm text-gray-300 font-light">
@@ -81,7 +81,7 @@ export default function Footer() {
 
           {/* Company */}
           <div className="min-w-0 lg:col-span-2">
-            <h3 className="text-xs font-bold tracking-widest text-white uppercase mb-6">
+            <h3 className="mb-6 text-xs font-semibold uppercase tracking-widest text-white">
               COMPANY
             </h3>
             <ul className="space-y-4 text-xs md:text-sm text-gray-300 font-light">
@@ -97,7 +97,7 @@ export default function Footer() {
 
           {/* Contact Info & Social Icons */}
           <div className="min-w-0 space-y-4 lg:col-span-2">
-            <h3 className="text-xs font-bold tracking-widest text-white uppercase mb-6">
+            <h3 className="mb-6 text-xs font-semibold uppercase tracking-widest text-white">
               CONTACT
             </h3>
             <p className="text-xs md:text-sm text-gray-300 leading-relaxed font-light">
@@ -159,10 +159,10 @@ export default function Footer() {
 
       {/* 3. Bottom Bar */}
       <div className="bg-[#020F26] border-t border-white/10 py-6 px-6 lg:px-12 relative z-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-[11px] tracking-wider text-gray-300">
+        <div className="mx-auto flex w-full flex-col items-center justify-center gap-5 text-center text-[11px] tracking-wider text-gray-300 md:grid md:grid-cols-[1fr_auto_1fr] md:gap-x-8 md:gap-y-4">
           
           {/* Brand Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center md:justify-self-start">
             <Image
               src="/images/logofooter.png"
               alt="TaerG Campus Laundry Logo"
@@ -173,14 +173,14 @@ export default function Footer() {
           </div>
 
           {/* Copyright Text */}
-          <p className="text-center font-normal uppercase">
+          <p className="text-center font-normal uppercase md:justify-self-center">
             2026 TAERG CAMPUS LAUNDRY. ALL RIGHTS RESERVED.
           </p>
 
           {/* Development Credit — replace the placeholder URL when available. */}
           <Link
             href="#"
-            className="text-center normal-case tracking-normal text-gray-300 transition-colors hover:text-white md:text-right"
+            className="text-center normal-case tracking-normal text-gray-300 transition-colors hover:text-white md:justify-self-end md:text-right"
             aria-label="Designed and Developed by Wexoraa Infotech"
           >
             Designed and Developed by{' '}

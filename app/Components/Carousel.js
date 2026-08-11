@@ -16,28 +16,31 @@ const slides = [
   },
   {
     id: 2,
-    title: '',
-    highlightTitle: '',
-    description: '',
-    bgImage: '/images/carouselimg2.png',
+    title: 'A Smarter Campus Service for',
+    highlightTitle: 'Students and Institutions.',
+    description:
+      'Give students easy access to dependable laundry while college teams gain a professionally managed facility, reliable service standards, and a better campus experience.',
+    bgImage: '/images/carousel2.png',
     showButtons: false,
   },
 
   {
     id: 3,
-    title: '',
-    highlightTitle: '',
-    description: '',
-    bgImage: '/images/carouselimg3.png',
+    title: 'More Time for Learning.',
+    highlightTitle: 'Less Time Managing Laundry.',
+    description:
+      'Convenient collection and on-time delivery help students stay focused on academics, activities, and campus life without laundry becoming another weekly task.',
+    bgImage: '/images/carousel3.png',
     showButtons: false,
   },
 
   {
     id: 4,
-    title: '',
-    highlightTitle: '',
-    description: '',
-    bgImage: '/images/carouselimg4.png',
+    title: 'Fully Managed Operations.',
+    highlightTitle: 'Clearer Control for Management.',
+    description:
+      'From trained staff and commercial equipment to hygiene, maintenance, and service monitoring, Taerg manages the complete laundry operation with consistent accountability.',
+    bgImage: '/images/carousel4.png',
     showButtons: false,
   },
   
@@ -58,7 +61,7 @@ export default function StackedHero() {
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className="carousel-card-shimmer sticky top-24 w-full h-[calc(100vh-7.5rem)] min-h-[540px] mb-[15vh] last:mb-0 rounded-xl overflow-hidden shadow-xl border border-gray-100/20"
+          className="carousel-card-shimmer sticky top-24 mb-[15vh] h-[calc(100svh-6rem)] min-h-[520px] w-full overflow-hidden rounded-xl border border-gray-100/20 shadow-xl last:mb-0 md:h-[calc(100vh-7.5rem)] md:min-h-[540px]"
           style={{
             zIndex: index + 1,
           }}
@@ -70,6 +73,7 @@ export default function StackedHero() {
               alt={slide.title}
               fill
               priority={index === 0}
+              sizes="100vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/30" />
@@ -79,7 +83,7 @@ export default function StackedHero() {
           <div
             className={`relative z-10 h-full w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col text-white ${
               slide.description || slide.showButtons
-                ? 'justify-end pb-12 lg:justify-center lg:pb-0'
+                ? 'justify-center py-8 lg:py-0'
                 : 'items-center justify-center text-center'
             }`}
           >
@@ -99,9 +103,9 @@ export default function StackedHero() {
                     : 'w-full max-w-none text-center'
                 }`}
               >
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-normal leading-tight tracking-tight">
+                <h1 className="text-3xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
                   {slide.title}
-                  <span className="block font-medium text-gray-200 mt-1">
+                  <span className="mt-1 block font-semibold text-gray-200">
                     {slide.highlightTitle}
                   </span>
                 </h1>
@@ -147,7 +151,7 @@ export default function StackedHero() {
 
       {/* Continuous marquee below the carousel stack. */}
       <div
-        className="h-32 overflow-hidden bg-[#08265A] text-white"
+        className="h-32 overflow-hidden bg-[#08265A] text-white lg:h-20"
         aria-label="Partnering with Colleges and Universities. Creating Smart Laundry Experiences."
       >
         <div className="carousel-marquee-track h-full items-center">

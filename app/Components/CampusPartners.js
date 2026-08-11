@@ -24,7 +24,7 @@ const institutions = [
     name: "SVEC",
     fullName: "Kathir college of engineering",
     location: "Coimbatore, Tamil Nadu",
-    logo: "/images/camsvceimg1.png", 
+    logo: "/images/camsvceimg.png",
   },
 ];
 
@@ -66,7 +66,7 @@ export default function CampusPartners() {
               Our Campus Partners
             </div>
             
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight leading-tight">
+            <h2 className="text-3xl font-semibold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
               Trusted by Leading Educational Institutions
             </h2>
             
@@ -109,7 +109,7 @@ export default function CampusPartners() {
 
                 {/* Institution Details */}
                 <div className="relative z-10">
-                  <h3 className="text-xl font-bold text-[#0a1b3d]">{item.name}</h3>
+                  <h3 className="text-xl font-semibold text-[#0a1b3d]">{item.name}</h3>
                   <p className="text-xs font-medium text-gray-600">{item.fullName}</p>
                   <p className="mt-0.5 text-[11px] text-gray-400">{item.location}</p>
                 </div>

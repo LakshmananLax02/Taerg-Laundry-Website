@@ -36,13 +36,16 @@ export default function WhyChoose() {
     <section className="relative isolate bg-[#031738] px-2 py-8 font-sans text-white sm:px-4 sm:py-6 md:py-6 lg:px-10 lg:py-6">
       <div className="mx-auto max-w-7xl">
         <header className="relative z-10 mb-6 px-2 text-center sm:mb-8 md:mb-10">
-          <div className="mb-3 flex items-center justify-center gap-2.5">
-            <span className="inline-block h-6 w-6 rounded-full bg-[#163873] md:h-7 md:w-7" />
-            <span className="inline-block h-6 w-6 rounded-full bg-[#163873] md:h-7 md:w-7" />
-            <h2 className="text-3xl font-normal leading-tight tracking-tight md:text-4xl lg:text-5xl">
-              Why Choose Taerg
-            </h2>
+          <div className="mb-3 flex justify-center">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-[#0a1b3d] px-3 py-1 text-xs font-medium text-white">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
+              Why Taerg
+            </div>
           </div>
+
+          <h2 className="text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl">
+            Why Choose Taerg
+          </h2>
 
           <p className="mx-auto mt-3 max-w-xl text-xs font-light leading-relaxed tracking-wide text-gray-300 md:text-sm">
             Partnering with forward-thinking campuses to deliver world-class
@@ -74,7 +77,7 @@ export default function WhyChoose() {
                     <span className="h-px w-14 bg-blue-300/60" />
                   </div>
 
-                  <h3 className="text-2xl font-normal leading-tight tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
+                  <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
                     {reason.title}
                   </h3>
 

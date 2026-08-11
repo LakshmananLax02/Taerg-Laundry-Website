@@ -128,7 +128,7 @@ export default function AboutUs() {
             <span className="text-xs font-medium tracking-wide">About Taerg</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal text-[#031738] tracking-tight leading-tight">
+          <h2 className="text-3xl font-semibold leading-tight tracking-tight text-[#031738] md:text-4xl lg:text-5xl">
             Built on Trust, Driven by Innovation
           </h2>
 
