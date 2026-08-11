@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-
+//new things added
 export default function ScrollReveal({ children, direction = 'up', delay = 0 }) {
   const elementRef = useRef(null);
 
