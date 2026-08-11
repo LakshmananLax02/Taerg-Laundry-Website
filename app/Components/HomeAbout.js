@@ -168,7 +168,7 @@ export default function AboutUs() {
 
                 {/* Card Content */}
                 <div className="relative z-10 flex min-h-[245px] flex-col p-5 sm:p-6">
-                  <div className="mb-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFDE6A] text-[#031738] shadow-md transition-transform duration-300 group-hover:scale-105">
+                  <div className="mb-auto flex h-12 w-12 items-center justify-center rounded-xl bg-white text-[#031738] shadow-md transition-transform duration-300 group-hover:scale-105">
                     <IconComponent size={24} strokeWidth={1.8} />
                   </div>
 

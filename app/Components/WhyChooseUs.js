@@ -33,93 +33,100 @@ const reasons = [
 
 export default function WhyChoose() {
   return (
-    <section className="relative isolate bg-[#031738] px-2 py-8 font-sans text-white sm:px-4 sm:py-6 md:py-6 lg:px-10 lg:py-6">
-      <div className="mx-auto max-w-7xl">
-        <header className="relative z-10 mb-6 px-2 text-center sm:mb-8 md:mb-10">
-          <div className="mb-3 flex justify-center">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-[#0a1b3d] px-3 py-1 text-xs font-medium text-white">
-              <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
-              Why Taerg
+    <section className="relative isolate bg-[#020A17] font-sans text-white">
+      <div className="relative">
+        <header className="sticky top-20 z-[1] grid h-[calc(100svh-6rem)] place-content-center overflow-hidden bg-[#031738] px-5 text-center lg:top-28 lg:h-[calc(100svh-8rem)]">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.10)_1px,transparent_1px)] [background-size:54px_54px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_70%,transparent_100%)]" />
+          <div className="relative z-10 mx-auto max-w-4xl">
+            <div className="mb-4 flex justify-center">
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-[#0a1b3d] px-3.5 py-1.5 text-xs font-medium text-white">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-blue-400" />
+                Why Taerg
+              </div>
+            </div>
+
+            <h2 className="text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-7xl">
+              Why Choose Taerg
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl text-sm font-light leading-relaxed tracking-wide text-gray-300 sm:text-base lg:text-lg">
+              Partnering with forward-thinking campuses to deliver world-class
+              laundry infrastructure and student experiences.
+            </p>
+
+            <div className="mx-auto mt-8 flex w-fit items-center gap-3 text-xs uppercase tracking-[0.22em] text-blue-100/70">
+              <span className="h-px w-10 bg-blue-300/50" />
+              Scroll to explore
+              <span className="h-px w-10 bg-blue-300/50" />
             </div>
           </div>
-
-          <h2 className="text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl">
-            Why Choose Taerg
-          </h2>
-
-          <p className="mx-auto mt-3 max-w-xl text-xs font-light leading-relaxed tracking-wide text-gray-300 md:text-sm">
-            Partnering with forward-thinking campuses to deliver world-class
-            laundry infrastructure and student experiences.
-          </p>
         </header>
 
-        <div className="relative">
-          {reasons.map((reason, index) => (
-            <article
-              key={reason.number}
-              className="sticky top-20 mb-[8vh] grid h-[calc(100svh-5.75rem)] max-h-[650px] w-full grid-cols-1 grid-rows-[minmax(0,1fr)_38%] items-center overflow-hidden rounded-2xl border border-white/10 shadow-[0_28px_70px_-35px_rgba(0,0,0,0.9)] last:mb-0 sm:mb-[10vh] sm:rounded-3xl md:top-24 lg:mb-[12vh] lg:h-[calc(100vh-7.5rem)] lg:max-h-none lg:grid-cols-12 lg:grid-rows-none"
-              style={{ backgroundColor: reason.background, zIndex: index + 1 }}
+        {reasons.map((reason, index) => (
+          <article
+            key={reason.number}
+            className="sticky top-20 grid h-[calc(100svh-6rem)] w-full grid-cols-1 grid-rows-[52%_48%] items-center overflow-hidden rounded-t-[2rem] border-x border-t border-white/10 shadow-[0_-20px_65px_-35px_rgba(0,0,0,0.95)] lg:top-28 lg:h-[calc(100svh-8rem)] lg:grid-cols-12 lg:grid-rows-none"
+            style={{ backgroundColor: reason.background, zIndex: index + 2 }}
+          >
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] [background-size:54px_54px] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_0%,#000_75%,transparent_100%)]" />
+
+            <div
+              className={`relative z-10 flex h-full min-h-0 flex-col justify-center px-6 pb-5 pt-10 sm:px-10 lg:col-span-5 lg:px-12 lg:py-10 xl:px-16 xl:py-14 ${
+                reason.reverse ? 'lg:order-2' : ''
+              }`}
             >
-              <div
-                className={`relative z-10 flex h-full min-h-0 flex-col justify-center px-5 py-5 sm:px-7 sm:py-6 md:px-9 lg:col-span-5 lg:px-12 lg:py-14 ${
-                  reason.reverse ? 'lg:order-2' : ''
-                }`}
-              >
-                <span className="pointer-events-none absolute -left-3 top-1/2 -translate-y-1/2 select-none text-[180px] font-black leading-none text-white/[0.035] sm:text-[230px] lg:text-[300px]">
-                  {reason.number}
-                </span>
+              <span className="pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 select-none text-[11rem] font-black leading-none text-white/[0.035] sm:text-[15rem] lg:text-[20rem]">
+                {reason.number}
+              </span>
 
-                <div className="relative z-10 max-w-lg">
-                  <div className="mb-3 flex items-center gap-3 sm:mb-4 lg:mb-5">
-                    <span className="text-2xl font-extrabold text-white md:text-3xl lg:text-4xl">
-                      {reason.number}
-                    </span>
-                    <span className="h-px w-14 bg-blue-300/60" />
-                  </div>
+              <div className="relative z-10 max-w-xl">
+                <div className="mb-4 flex items-center gap-3">
+                  <span className="text-2xl font-semibold text-white sm:text-3xl lg:text-4xl">
+                    {reason.number}
+                  </span>
+                  <span className="h-px w-14 bg-blue-300/60" />
+                </div>
 
-                  <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
-                    {reason.title}
-                  </h3>
+                <h3 className="text-3xl font-semibold leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl">
+                  {reason.title}
+                </h3>
 
-                  <p className="mt-3 max-w-md text-xs font-light leading-relaxed text-blue-100/80 sm:mt-4 sm:text-sm md:text-base lg:mt-5">
-                    {reason.description}
-                  </p>
+                <p className="mt-4 max-w-lg text-sm font-light leading-relaxed text-blue-100/80 sm:text-base lg:mt-6 lg:text-lg">
+                  {reason.description}
+                </p>
 
-                  <div className="mt-5 flex items-center gap-2 sm:mt-6 lg:mt-8" aria-hidden="true">
-                    {reasons.map((item, dotIndex) => (
-                      <span
-                        key={item.number}
-                        className={`h-1.5 rounded-full transition-all ${
-                          dotIndex === index ? 'w-8 bg-white' : 'w-3 bg-white/25'
-                        }`}
-                      />
-                    ))}
-                  </div>
+                <div className="mt-6 flex items-center gap-2 lg:mt-9" aria-hidden="true">
+                  {reasons.map((item, dotIndex) => (
+                    <span
+                      key={item.number}
+                      className={`h-1.5 rounded-full transition-all ${
+                        dotIndex === index ? 'w-8 bg-white' : 'w-3 bg-white/25'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
+            </div>
 
-              <div
-                className={`relative h-full min-h-0 self-stretch lg:col-span-7 ${
-                  reason.reverse ? 'lg:order-1' : ''
-                }`}
-              >
-                <div className="absolute inset-x-2 bottom-2 top-0 overflow-hidden rounded-xl border border-white/15 sm:inset-x-4 sm:bottom-4 sm:rounded-2xl lg:inset-6">
-                  <Image
-                    src={reason.image}
-                    alt={reason.alt}
-                    fill
-                    priority={index === 0}
-                    sizes="(max-width: 1024px) 100vw, 58vw"
-                    className="object-cover transition-transform duration-700 hover:scale-[1.025]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#031738]/45 via-transparent to-white/5" />
-                </div>
+            <div
+              className={`relative z-10 h-full min-h-0 self-stretch lg:col-span-7 ${
+                reason.reverse ? 'lg:order-1' : ''
+              }`}
+            >
+              <div className="absolute inset-x-4 bottom-4 top-0 overflow-hidden rounded-2xl border border-white/15 sm:inset-x-6 sm:bottom-6 lg:inset-8">
+                <Image
+                  src={reason.image}
+                  alt={reason.alt}
+                  fill
+                  priority={index === 0}
+                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  className="object-cover transition-transform duration-700 hover:scale-[1.025]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#031738]/45 via-transparent to-white/5" />
               </div>
-            </article>
-          ))}
-
-          <div className="h-[8vh] sm:h-[12vh] lg:h-[18vh]" aria-hidden="true" />
-        </div>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

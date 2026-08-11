@@ -89,24 +89,24 @@ export default function LaundryBenefits() {
                   index % 2 === 0 ? 'justify-start' : 'justify-end'
                 }`}
               >
-                <article className="group relative w-full max-w-2xl overflow-hidden rounded-2xl border border-white/15 bg-[#0A244B]/75 p-5 shadow-[0_24px_70px_-30px_rgba(0,0,0,0.95)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-white/30 hover:bg-[#0D2D5D]/85 sm:p-7 md:p-9">
-                  <span className="pointer-events-none absolute -right-2 -top-6 select-none text-[115px] font-black leading-none text-white/[0.055] sm:text-[150px]">
+                <article className="group relative w-full max-w-2xl overflow-hidden rounded-3xl border border-white/15 bg-black/45 p-5 shadow-2xl backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-white/30 hover:bg-black/55 sm:p-7">
+                  <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 select-none text-[7rem] font-black leading-none text-white/[0.055] sm:right-8 sm:text-[10rem]">
                     {String(index + 1).padStart(2, '0')}
                   </span>
 
-                  <div className="relative z-10 flex items-start gap-4 sm:gap-6">
-                    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-[#FFEA9C] text-[#061B3B] shadow-lg transition-transform duration-300 group-hover:scale-105 sm:h-20 sm:w-20">
+                  <div className="relative z-10 flex items-center gap-4 sm:gap-6">
+                    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-white text-[#061B3B] shadow-lg transition-transform duration-300 group-hover:scale-105 sm:h-20 sm:w-20">
                       <Icon size={32} strokeWidth={1.7} aria-hidden="true" />
                     </div>
 
-                    <div className="pt-1">
-                      <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-blue-200/70 sm:text-xs">
+                    <div className="min-w-0">
+                      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-blue-200/80 sm:text-xs">
                         Benefit {String(index + 1).padStart(2, '0')}
                       </p>
-                      <h3 className="text-xl font-semibold leading-snug text-white sm:text-2xl md:text-3xl">
+                      <h3 className="mt-1.5 text-xl font-semibold leading-snug text-white sm:text-2xl">
                         {benefit.title}
                       </h3>
-                      <p className="mt-2 max-w-md text-xs font-light leading-relaxed text-white/75 sm:text-sm md:text-base">
+                      <p className="mt-2 max-w-md text-xs font-light leading-relaxed text-gray-200 sm:text-base">
                         {benefit.description}
                       </p>
                     </div>

@@ -18,8 +18,6 @@ const slides = [
     id: 2,
     title: 'A Smarter Campus Service for',
     highlightTitle: 'Students and Institutions.',
-    description:
-      'Give students easy access to dependable laundry while college teams gain a professionally managed facility, reliable service standards, and a better campus experience.',
     bgImage: '/images/carousel2.png',
     showButtons: false,
   },
@@ -28,8 +26,6 @@ const slides = [
     id: 3,
     title: 'More Time for Learning.',
     highlightTitle: 'Less Time Managing Laundry.',
-    description:
-      'Convenient collection and on-time delivery help students stay focused on academics, activities, and campus life without laundry becoming another weekly task.',
     bgImage: '/images/carousel3.png',
     showButtons: false,
   },
@@ -38,8 +34,6 @@ const slides = [
     id: 4,
     title: 'Fully Managed Operations.',
     highlightTitle: 'Clearer Control for Management.',
-    description:
-      'From trained staff and commercial equipment to hygiene, maintenance, and service monitoring, Taerg manages the complete laundry operation with consistent accountability.',
     bgImage: '/images/carousel4.png',
     showButtons: false,
   },
@@ -103,43 +97,53 @@ export default function StackedHero() {
                     : 'w-full max-w-none text-center'
                 }`}
               >
-                <h1 className="text-3xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
+                <h1
+                  className={`text-3xl leading-tight tracking-tight md:text-5xl lg:text-6xl ${
+                    slide.id === 1 ? 'font-semibold' : 'font-normal'
+                  }`}
+                >
                   {slide.title}
-                  <span className="mt-1 block font-semibold text-gray-200">
+                  <span
+                    className={`mt-1 block text-gray-200 ${
+                      slide.id === 1 ? 'font-semibold' : 'font-light'
+                    }`}
+                  >
                     {slide.highlightTitle}
                   </span>
                 </h1>
               </div>
 
               {/* Description & Action Buttons Column */}
-              <div className="lg:col-span-5 space-y-6 lg:pl-6">
-                {slide.description && (
-                  <p className="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-lg">
-                    {slide.description}
-                  </p>
-                )}
+              {(slide.description || slide.showButtons) && (
+                <div className="space-y-6 lg:col-span-5 lg:pl-6">
+                  {slide.description && (
+                    <p className="max-w-lg text-sm font-light leading-relaxed text-gray-300 md:text-base">
+                      {slide.description}
+                    </p>
+                  )}
 
-                {slide.showButtons && (
-                  <div className="flex flex-wrap items-center gap-4 pt-2">
-                    <a
-                      href="tel:+91XXXXXXXXXX"
-                      className="action-ripple action-ripple--call gap-2 px-6 py-2.5 text-sm font-semibold shadow-md"
-                    >
-                      <Phone size={16} />
-                      Call us now
-                    </a>
-                    <a
-                      href="https://wa.me/91XXXXXXXXXX"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="action-ripple action-ripple--whatsapp gap-2 px-6 py-2.5 text-sm font-semibold shadow-md"
-                    >
-                      <FaWhatsapp size={18} aria-hidden="true" />
-                      Chat on WhatsApp
-                    </a>
-                  </div>
-                )}
-              </div>
+                  {slide.showButtons && (
+                    <div className="flex flex-wrap items-center gap-4 pt-2">
+                      <a
+                        href="tel:+91XXXXXXXXXX"
+                        className="action-ripple action-ripple--call gap-2 px-6 py-2.5 text-sm font-semibold shadow-md"
+                      >
+                        <Phone size={16} />
+                        Call us now
+                      </a>
+                      <a
+                        href="https://wa.me/91XXXXXXXXXX"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="action-ripple action-ripple--whatsapp gap-2 px-6 py-2.5 text-sm font-semibold shadow-md"
+                      >
+                        <FaWhatsapp size={18} aria-hidden="true" />
+                        Chat on WhatsApp
+                      </a>
+                    </div>
+                  )}
+                </div>
+              )}
 
             </div>
           </div>

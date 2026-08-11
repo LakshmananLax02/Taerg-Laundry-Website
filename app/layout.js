@@ -1,6 +1,7 @@
 import { Manrope, Geist_Mono } from "next/font/google";
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer'
+import 'lenis/dist/lenis.css';
 import "./globals.css";
 
 const manrope = Manrope({
