@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "taerg-laundry-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "D:/Lakshmanan Official/React Practice/Lakshmanan/Practice project/Taerg-Laundry-Website",
+      "port": 3000
+    }
+  ]
+}

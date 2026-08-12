@@ -121,11 +121,11 @@ export default function CampusPartners() {
 
         {/* Bottom Banner Bar */}
         <div className="bg-[#04122d] rounded-2xl py-8 px-6 lg:px-12 text-white">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-blue-900/50">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:divide-x divide-blue-900/50">
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <div key={index} className={`flex items-center gap-4 ${index !== 0 ? 'pt-4 md:pt-0 md:pl-6' : ''}`}>
+                <div key={index} className={`flex items-center gap-4 ${index !== 0 ? 'md:pl-6' : ''}`}>
                   <div className="w-12 h-12 rounded-full border border-blue-400/30 flex items-center justify-center flex-shrink-0 text-white">
                     <IconComponent className="w-5 h-5" />
                   </div>

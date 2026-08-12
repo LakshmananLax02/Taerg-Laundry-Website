@@ -141,7 +141,7 @@ export default function HowItWorksSection() {
             </h2>
           </header>
 
-          <div className="grid min-h-0 flex-1 grid-rows-[minmax(0,1.35fr)_minmax(0,0.65fr)] gap-3 pt-3 sm:gap-4 sm:pt-4 lg:grid-cols-12 lg:grid-rows-1 lg:gap-7">
+          <div className="grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)_minmax(176px,0.85fr)] gap-3 pt-3 sm:gap-4 sm:pt-4 lg:grid-cols-12 lg:grid-rows-1 lg:gap-7">
             <div className="relative min-h-0 overflow-hidden rounded-2xl border border-slate-200 bg-[#071a3a] shadow-[0_22px_55px_-32px_rgba(3,23,56,0.7)] lg:col-span-7">
               {steps.map((step, index) => {
                 const isActive = index === activeStep;
@@ -207,56 +207,58 @@ export default function HowItWorksSection() {
               </div>
             </div>
 
-            <div className="relative min-h-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_18px_45px_-34px_rgba(3,23,56,0.55)] lg:col-span-5">
-              {steps.map((step, index) => {
-                const isActive = index === activeStep;
-                const isRevealed = hasEntered && index <= activeStep;
+            <div className="relative flex min-h-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_18px_45px_-34px_rgba(3,23,56,0.55)] lg:col-span-5">
+              <div className="relative min-h-0 flex-1">
+                {steps.map((step, index) => {
+                  const isActive = index === activeStep;
+                  const isRevealed = hasEntered && index <= activeStep;
 
-                return (
-                  <article
-                    key={step.id}
-                    aria-hidden={!isActive}
-                    style={{ zIndex: index + 1 }}
-                    className={`absolute inset-0 flex flex-col justify-center bg-white px-5 py-4 will-change-transform transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none sm:px-7 lg:px-8 xl:px-10 ${
-                      isRevealed
-                        ? "translate-x-0"
-                        : "translate-x-[105%]"
-                    }`}
-                  >
-                    <div className="hidden lg:block">
-                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
-                        {step.subtitle}
-                      </p>
-                      <div className="mt-3 flex items-start gap-4">
-                        <span className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-[#0a1b3d] text-base font-semibold text-white shadow-md xl:h-14 xl:w-14">
-                          {step.id}
-                        </span>
-                        <h3 className="pt-1 text-2xl font-semibold leading-tight tracking-tight text-[#0a1b3d] xl:text-3xl">
-                          {step.title}
-                        </h3>
+                  return (
+                    <article
+                      key={step.id}
+                      aria-hidden={!isActive}
+                      style={{ zIndex: index + 1 }}
+                      className={`absolute inset-0 flex flex-col justify-center overflow-hidden bg-white px-5 py-3 will-change-transform transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none sm:px-7 sm:py-4 lg:px-8 xl:px-10 ${
+                        isRevealed
+                          ? "translate-x-0"
+                          : "translate-x-[105%]"
+                      }`}
+                    >
+                      <div className="hidden lg:block">
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
+                          {step.subtitle}
+                        </p>
+                        <div className="mt-3 flex items-start gap-4">
+                          <span className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-[#0a1b3d] text-base font-semibold text-white shadow-md xl:h-14 xl:w-14">
+                            {step.id}
+                          </span>
+                          <h3 className="pt-1 text-2xl font-semibold leading-tight tracking-tight text-[#0a1b3d] xl:text-3xl">
+                            {step.title}
+                          </h3>
+                        </div>
                       </div>
-                    </div>
 
-                    <p className="text-sm leading-relaxed text-slate-600 lg:mt-5 lg:text-base xl:text-lg">
-                      {step.description}
-                    </p>
+                      <p className="text-sm leading-relaxed text-slate-600 lg:mt-5 lg:text-base xl:text-lg">
+                        {step.description}
+                      </p>
 
-                    <div className="mt-3 flex flex-wrap gap-2 lg:mt-6">
-                      {step.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-medium text-[#0a1b3d] sm:text-xs"
-                        >
-                          <CheckCircle2 className="h-3.5 w-3.5 text-blue-600" />
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </article>
-                );
-              })}
+                      <div className="mt-2 flex flex-wrap gap-2 sm:mt-3 lg:mt-6">
+                        {step.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-medium text-[#0a1b3d] sm:text-xs"
+                          >
+                            <CheckCircle2 className="h-3.5 w-3.5 text-blue-600" />
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
 
-              <div className={`absolute inset-x-5 bottom-3 z-20 flex items-center gap-2 transition-opacity duration-500 sm:inset-x-7 lg:bottom-5 lg:px-1 xl:inset-x-10 ${hasEntered ? "opacity-100" : "opacity-0"}`}>
+              <div className={`flex shrink-0 items-center gap-2 px-5 pb-3 pt-2 transition-opacity duration-500 sm:px-7 sm:pb-4 lg:px-8 lg:pb-5 lg:pt-3 xl:px-10 ${hasEntered ? "opacity-100" : "opacity-0"}`}>
                 {steps.map((step, index) => (
                   <button
                     key={step.id}
