@@ -85,7 +85,7 @@ export default function StackedHero() {
               className={`${
                 slide.description || slide.showButtons
                   ? 'grid grid-cols-1 items-center gap-8 lg:grid-cols-12'
-                  : 'flex h-full w-full items-center justify-center text-center'
+                  : 'grid h-full w-full place-items-center text-center'
               }`}
             >
               
@@ -94,12 +94,18 @@ export default function StackedHero() {
                 className={`space-y-2 ${
                   slide.description || slide.showButtons
                     ? 'lg:col-span-7'
-                    : 'w-full max-w-none text-center'
+                    : 'flex w-full items-center justify-center text-center'
                 }`}
               >
-                <h1 className="text-3xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
+                <h1
+                  className={`leading-tight tracking-tight ${
+                    index === 0
+                      ? 'text-3xl font-semibold md:text-5xl lg:text-6xl'
+                      : 'm-0 flex max-w-[95%] flex-col items-center justify-center gap-0 text-2xl font-normal leading-[1.12] md:text-4xl lg:max-w-[90%] lg:text-5xl'
+                  }`}
+                >
                   {slide.title}
-                  <span className="mt-1 block text-gray-200">
+                  <span className={`${index === 0 ? 'mt-1' : 'mt-0'} block text-gray-200`}>
                     {slide.highlightTitle}
                   </span>
                 </h1>

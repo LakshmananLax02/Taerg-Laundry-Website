@@ -11,7 +11,12 @@ export default function Footer() {
       
       {/* 1. Call to Action Card */}
       <div className="bg-[linear-gradient(to_bottom,#ffffff_0%,#ffffff_48%,#031738_48%,#031738_100%)] px-5 pb-10 pt-6 sm:px-8 lg:px-12">
-        <div className="relative z-20 mx-auto max-w-6xl rounded-lg border-2 border-white/90 bg-[#1B3673] px-6 py-7 text-center shadow-2xl sm:px-8 md:px-12 md:py-9">
+        <div className="relative z-20 mx-auto max-w-6xl overflow-hidden rounded-lg border-2 border-white/90 bg-[radial-gradient(circle_at_12%_8%,rgba(31,67,132,0.72),transparent_34%),radial-gradient(circle_at_88%_90%,rgba(13,50,111,0.68),transparent_40%),linear-gradient(130deg,#17376f_0%,#0d2b5c_38%,#061d43_68%,#020d24_100%)] px-6 py-7 text-center shadow-[0_30px_75px_-18px_rgba(1,12,35,0.95)] sm:px-8 md:px-12 md:py-9">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(112deg,transparent_12%,rgba(255,255,255,0.08)_40%,transparent_64%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent" />
+          <div className="pointer-events-none absolute -left-20 -top-24 h-72 w-72 rounded-full bg-[#244a8e]/25 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-32 right-4 h-80 w-80 rounded-full bg-[#0b3475]/35 blur-3xl" />
+          <div className="relative z-10">
           <h2 className="mx-auto mb-3 max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
             Ready to Transform Your Campus Laundry?
           </h2>
@@ -36,6 +41,7 @@ export default function Footer() {
               <FaWhatsapp size={17} aria-hidden="true" />
               Chat on WhatsApp
             </a>
+          </div>
           </div>
         </div>
       </div>

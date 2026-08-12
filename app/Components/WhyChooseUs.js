@@ -116,7 +116,7 @@ export default function WhyChoose() {
       </header>
 
       <div ref={trackRef} className="relative h-[360svh] bg-[#020A17]">
-        <div className="sticky top-20 z-[2] h-[calc(100svh-6rem)] overflow-hidden rounded-t-[2rem] border-x border-t border-white/10 bg-[#061A39] shadow-[0_-20px_65px_-35px_rgba(0,0,0,0.95)] lg:top-28 lg:h-[calc(100svh-8rem)]">
+        <div className="sticky top-20 z-[2] h-[calc(100svh-6rem)] overflow-hidden  border-x border-t border-white/10 bg-[#061A39] shadow-[0_-20px_65px_-35px_rgba(0,0,0,0.95)] lg:top-28 lg:h-[calc(100svh-8rem)]">
           <div className="pointer-events-none absolute inset-0 z-20 bg-[linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] [background-size:54px_54px] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_0%,#000_75%,transparent_100%)]" />
 
           {reasons.map((reason, index) => {

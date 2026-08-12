@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import {
   UserRoundCheck,
@@ -10,32 +13,80 @@ import {
 const benefits = [
   {
     title: 'Student Convenience',
-    description: 'Easy access to laundry services within the campus.',
+    description:
+      'Students get dependable laundry care within the campus, with simple access and no need to travel outside for everyday washing needs.',
     icon: UserRoundCheck,
   },
   {
     title: 'Time Saving',
-    description: 'Spend more time on studies and campus activities.',
+    description:
+      'Scheduled collection and timely delivery remove the weekly laundry burden, leaving students more time for classes, projects and campus life.',
     icon: TimerReset,
   },
   {
     title: 'Hygienic Laundry Care',
-    description: 'Professional cleaning with better hygiene standards.',
+    description:
+      'Professional processes, quality detergents and carefully maintained equipment deliver consistently fresh garments with stronger hygiene standards.',
     icon: ShieldCheck,
   },
   {
     title: 'Easy Pickup & Delivery',
-    description: 'Convenient laundry collection and delivery support.',
+    description:
+      'Doorstep pickup and organized return schedules make every laundry cycle predictable, convenient and easy to manage around academic routines.',
     icon: Truck,
   },
   {
     title: 'Efficient Management',
-    description: 'Organized and efficient campus laundry operations.',
+    description:
+      'A fully managed service gives institutions structured operations, reliable reporting and responsive support without adding administrative workload.',
     icon: Settings2,
   },
 ];
 
 export default function LaundryBenefits() {
+  const cardRefs = useRef([]);
+  const [cardProgress, setCardProgress] = useState(() =>
+    benefits.map(() => 0),
+  );
+
+  useEffect(() => {
+    let frameId;
+
+    const updateCardProgress = () => {
+      const viewportHeight = window.innerHeight;
+      const nextProgress = cardRefs.current.map((card) => {
+        if (!card) return 0;
+
+        const { top } = card.getBoundingClientRect();
+        const animationStart = viewportHeight * 0.92;
+        const animationEnd = viewportHeight * 0.38;
+
+        return Math.min(
+          1,
+          Math.max(0, (animationStart - top) / (animationStart - animationEnd)),
+        );
+      });
+
+      setCardProgress(nextProgress);
+      frameId = undefined;
+    };
+
+    const handleScroll = () => {
+      if (frameId) return;
+      frameId = window.requestAnimationFrame(updateCardProgress);
+    };
+
+    updateCardProgress();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      if (frameId) window.cancelAnimationFrame(frameId);
+    };
+  }, []);
+
   return (
     <section
       id="campus-benefits"
@@ -85,25 +136,33 @@ export default function LaundryBenefits() {
             return (
               <div
                 key={benefit.title}
+                ref={(element) => {
+                  cardRefs.current[index] = element;
+                }}
+                data-benefit-index={index}
                 className={`flex min-h-[68vh] items-center ${
                   index % 2 === 0 ? 'justify-start' : 'justify-end'
                 }`}
               >
-                <article className="group relative w-full max-w-2xl overflow-hidden rounded-3xl border border-white/15 bg-black/45 p-5 shadow-2xl backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-white/30 hover:bg-black/55 sm:p-7">
+                <article
+                  className="group relative w-full max-w-2xl overflow-hidden rounded-3xl border border-white/15 bg-black/45 p-5 shadow-2xl backdrop-blur-md transition-[border-color,background-color] duration-500 hover:border-white/30 hover:bg-black/55 sm:p-7"
+                  style={{
+                    opacity: 0.18 + cardProgress[index] * 0.82,
+                    transform: `translate3d(${(index % 2 === 0 ? -1 : 1) * (1 - cardProgress[index]) * 110}vw, 0, 0)`,
+                    willChange: cardProgress[index] < 1 ? 'transform, opacity' : 'auto',
+                  }}
+                >
                   <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 select-none text-[7rem] font-black leading-none text-white/[0.055] sm:right-8 sm:text-[10rem]">
                     {String(index + 1).padStart(2, '0')}
                   </span>
 
                   <div className="relative z-10 flex items-center gap-4 sm:gap-6">
-                    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-white text-[#061B3B] shadow-lg transition-transform duration-300 group-hover:scale-105 sm:h-20 sm:w-20">
+                    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-white/15  text-white shadow-lg  transition-transform duration-300 group-hover:scale-105 sm:h-20 sm:w-20">
                       <Icon size={32} strokeWidth={1.7} aria-hidden="true" />
                     </div>
 
                     <div className="min-w-0">
-                      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-blue-200/80 sm:text-xs">
-                        Benefit {String(index + 1).padStart(2, '0')}
-                      </p>
-                      <h3 className="mt-1.5 text-xl font-semibold leading-snug text-white sm:text-2xl">
+                      <h3 className="text-xl font-semibold leading-snug text-white sm:text-2xl">
                         {benefit.title}
                       </h3>
                       <p className="mt-2 max-w-md text-xs font-light leading-relaxed text-gray-200 sm:text-base">

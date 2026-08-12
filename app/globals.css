@@ -24,7 +24,7 @@ body {
 
 /* Shared visual language for every primary homepage section heading. */
 .section-topic {
-  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-size: clamp(2.125rem, 4.4vw, 4rem);
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.04em;
@@ -33,7 +33,7 @@ body {
 
 @media (max-width: 640px) {
   .section-topic {
-    font-size: clamp(2rem, 10vw, 2.75rem);
+    font-size: clamp(1.875rem, 8.5vw, 2.5rem);
     line-height: 1.08;
   }
 }

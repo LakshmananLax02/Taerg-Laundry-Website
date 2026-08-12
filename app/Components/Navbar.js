@@ -36,7 +36,7 @@ export default function Navbar() {
       <div
         className={`pointer-events-auto transition-all duration-500 ${
           isScrolled
-            ? 'max-w-6xl mx-auto rounded-xl bg-white/90 backdrop-blur-xl border border-gray-200/80 shadow-xl py-2.5 px-4 sm:px-6'
+            ? 'max-w-7xl mx-auto rounded-xl bg-white/90 backdrop-blur-xl border border-gray-200/80 shadow-xl py-2.5 px-4 sm:px-6'
             : 'w-full rounded-none bg-white border-b border-gray-100 shadow-none py-4 px-5 sm:px-8 lg:px-12'
         }`}
       >
