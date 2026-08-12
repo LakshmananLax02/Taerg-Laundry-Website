@@ -2,7 +2,13 @@
 
 import { useEffect, useRef } from 'react';
 //new things added in the git
-export default function ScrollReveal({ children, direction = 'up', delay = 0 }) {
+export default function ScrollReveal({
+  children,
+  direction = 'up',
+  delay = 0,
+  className = '',
+  rootMargin = '0px 0px -8% 0px',
+}) {
   const elementRef = useRef(null);
 
   useEffect(() => {
@@ -26,19 +32,19 @@ export default function ScrollReveal({ children, direction = 'up', delay = 0 }) 
       },
       {
         threshold: 0.12,
-        rootMargin: '0px 0px -8% 0px',
+        rootMargin,
       },
     );
 
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, []);
+  }, [rootMargin]);
 
   return (
     <div
       ref={elementRef}
-      className={`home-scroll-reveal home-scroll-reveal--${direction}`}
+      className={`home-scroll-reveal home-scroll-reveal--${direction}${className ? ` ${className}` : ''}`}
       style={{ '--reveal-delay': `${delay}ms` }}
     >
       {children}

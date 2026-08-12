@@ -8,10 +8,9 @@ import WhyChoose from "./Components/WhyChooseUs";
 import Partners from './Components/HomePartners'
 import Testimonial from "./Components/Testimonicals";
 import ScrollReveal from "./Components/ScrollReveal";
-import Scroll from './Components/Scroll';
 export default function Home() {
   return (
-    <Scroll>
+    <>
       <Herosection/>
       <ScrollReveal direction="up"><CampusPartners/></ScrollReveal>
       <About/>
@@ -21,6 +20,6 @@ export default function Home() {
       <ScrollReveal direction="scale"><VirtualTourSection/></ScrollReveal>
       <ScrollReveal direction="up"><Testimonial/></ScrollReveal>
       <ScrollReveal direction="scale"><Partners/></ScrollReveal>
-    </Scroll>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 import { Manrope, Geist_Mono } from "next/font/google";
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer'
+import Scroll from './Components/Scroll';
 import 'lenis/dist/lenis.css';
 import "./globals.css";
 
@@ -27,14 +28,16 @@ export default function RootLayout({ children }) {
       className={`${manrope.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="font-sans bg-white text-slate-900 min-h-full flex flex-col selection:bg-[#0B2545] selection:text-white">
-        {/* Navigation Header */}
-        <Navbar />
+        <Scroll>
+          {/* Navigation Header */}
+          <Navbar />
 
-        {/* Main Page Content */}
-        <main className="flex-1 w-full flex flex-col">
-          {children}
-        </main>
-        <Footer/>
+          {/* Main Page Content */}
+          <main className="flex-1 w-full flex flex-col">
+            {children}
+          </main>
+          <Footer/>
+        </Scroll>
       </body>
     </html>
   );
