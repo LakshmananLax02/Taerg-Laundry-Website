@@ -1,4 +1,4 @@
-import Herosection from './Components/Carousel'
+import Herosection from './Components/HeroScrollVideo'
 import About from './Components/HomeAbout'
 import CampusPartners from "./Components/CampusPartners";
 import Benefits from './Components/LaundryBenefits'
