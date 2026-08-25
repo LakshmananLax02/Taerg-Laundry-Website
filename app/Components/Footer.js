@@ -15,20 +15,20 @@ import {
 
 const quickLinks = [
   { label: 'Our Partners', href: '#partners' },
-  { label: 'About Taerg', href: '#about' },
+  { label: 'About Taerg', href: '/about' },
   { label: 'Campus Benefits', href: '#campus-benefits' },
   { label: 'Testimonials', href: '#testimonials' },
 ];
 
 const solutions = [
-  { label: 'Campus Laundry Service', href: '#about' },
+  { label: 'Campus Laundry Service', href: '/about' },
   { label: 'Commercial Laundry Machines', href: '#partners' },
   { label: 'Setup & Installation', href: '#campus-benefits' },
   { label: 'Service & Maintenance', href: '#campus-benefits' },
 ];
 
 const company = [
-  { label: 'About us', href: '#about' },
+  { label: 'About us', href: '/about' },
   { label: 'Our Partners', href: '#partners' },
   { label: 'Careers', href: '#' },
   { label: 'Privacy policy', href: '#' },

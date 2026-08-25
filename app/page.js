@@ -8,12 +8,14 @@ import WhyChoose from "./Components/WhyChooseUs";
 import Partners from './Components/HomePartners'
 import Testimonial from "./Components/Testimonicals";
 import ScrollReveal from "./Components/ScrollReveal";
+import CampusSolutionsShowcase from './Components/CampusSolutionsShowcase';
 export default function Home() {
   return (
     <>
       <Herosection/>
       <ScrollReveal direction="up"><CampusPartners/></ScrollReveal>
       <About/>
+      <ScrollReveal direction="up"><CampusSolutionsShowcase/></ScrollReveal>
       <WhyChoose/>
       <ScrollReveal direction="right"><Benefits/></ScrollReveal>
       <ScrollReveal direction="up"><HowItWorksSection/></ScrollReveal>

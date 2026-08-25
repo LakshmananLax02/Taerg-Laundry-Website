@@ -60,7 +60,7 @@ export default function StackedHero() {
             zIndex: index + 1,
           }}
         >
-          {/* Background Image with Dark Gradient Overlay */}
+          {/* Background image shown at its original brightness. */}
           <div className="absolute inset-0 z-0">
             <Image
               src={slide.bgImage}
@@ -70,7 +70,6 @@ export default function StackedHero() {
               sizes="100vw"
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/30" />
           </div>
 
           {/* Card Content Grid */}
@@ -102,7 +101,7 @@ export default function StackedHero() {
                     index === 0
                       ? 'text-3xl font-semibold md:text-5xl lg:text-6xl'
                       : 'm-0 flex max-w-[95%] flex-col items-center justify-center gap-0 text-2xl font-normal leading-[1.12] md:text-4xl lg:max-w-[90%] lg:text-5xl'
-                  }`}
+                  } [text-shadow:0_2px_18px_rgba(0,0,0,0.72)]`}
                 >
                   {slide.title}
                   <span className={`${index === 0 ? 'mt-1' : 'mt-0'} block text-gray-200`}>
@@ -115,7 +114,7 @@ export default function StackedHero() {
               {(slide.description || slide.showButtons) && (
                 <div className="space-y-6 lg:col-span-5 lg:pl-6">
                   {slide.description && (
-                    <p className="max-w-lg text-sm font-light leading-relaxed text-gray-300 md:text-base">
+                    <p className="max-w-lg text-sm font-light leading-relaxed text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.78)] md:text-base">
                       {slide.description}
                     </p>
                   )}

@@ -3,18 +3,20 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [activeTab, setActiveTab] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Campus Solutions', href: '#campus-solutions' },
-    { name: 'About Taerg', href: '#about' },
-    { name: 'Success Stories', href: '#success-stories' },
-    { name: 'Insights', href: '#insights' },
+    { name: 'Home', href: '/' },
+    { name: 'Campus Solutions', href: '/#campus-solutions' },
+    { name: 'About Taerg', href: '/about' },
+    { name: 'Success Stories', href: '/#success-stories' },
+    { name: 'Insights', href: '/#insights' },
   ];
 
   // Subtle elevation on scroll
@@ -62,7 +64,10 @@ export default function Navbar() {
           <div className="hidden md:flex items-center justify-center flex-1 mx-5 lg:mx-8">
             <nav className="flex items-center gap-6 lg:gap-9">
               {navLinks.map((link) => {
-                const isActive = activeTab === link.name;
+                const isActive =
+                  pathname === '/about'
+                    ? link.name === 'About Taerg'
+                    : activeTab === link.name;
 
                 return (
                   <a
@@ -137,7 +142,10 @@ export default function Navbar() {
         >
           <div className="flex flex-col pb-2">
             {navLinks.map((link) => {
-              const isActive = activeTab === link.name;
+              const isActive =
+                pathname === '/about'
+                  ? link.name === 'About Taerg'
+                  : activeTab === link.name;
               return (
                 <a
                   key={link.name}
