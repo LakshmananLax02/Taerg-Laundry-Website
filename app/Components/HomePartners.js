@@ -27,6 +27,12 @@ const partners = [
     width: 240,
     height: 90,
   },
+    {
+    name: 'PONY',
+    logo: '/images/ponylogo.png',
+    width: 240,
+    height: 90,
+  },
 ];
 
 export default function TrustedPartners() {
@@ -46,10 +52,10 @@ export default function TrustedPartners() {
         </h2>
 
         {/* Partners Logos Grid */}
-        <div className="mx-auto grid w-full max-w-5xl grid-cols-2 items-center justify-items-center gap-x-6 gap-y-5 md:grid-cols-4 md:gap-8">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-2 items-center justify-items-center gap-x-5 gap-y-6 sm:grid-cols-3 md:gap-7 lg:grid-cols-5 lg:gap-8">
           {partners.map((partner, index) => (
             <div
-              key={partner.name}
+              key={`${partner.name}-${index}`}
               className="partner-logo-perspective relative flex h-16 w-full max-w-[210px] items-center justify-center sm:h-20"
               style={{ '--partner-delay': `${index * 0.45}s` }}
             >
