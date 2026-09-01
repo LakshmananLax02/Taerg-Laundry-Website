@@ -83,7 +83,7 @@ export default function Testimonials() {
           <button
             onClick={prevSlide}
             aria-label="Previous Testimonial"
-            className="absolute -left-2 md:-left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-11 md:h-11 bg-white border border-gray-200 rounded-full flex items-center justify-center text-[#031738] shadow-sm hover:bg-gray-50 transition-all active:scale-95"
+            className="absolute -left-2 md:-left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-11 md:h-11 bg-white border border-gray-200 rounded-full flex items-center justify-center text-[#031738] shadow-sm"
           >
             <ChevronLeft size={20} />
           </button>
@@ -107,7 +107,7 @@ export default function Testimonials() {
           <button
             onClick={nextSlide}
             aria-label="Next Testimonial"
-            className="absolute -right-2 md:-right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-11 md:h-11 bg-white border border-gray-200 rounded-full flex items-center justify-center text-[#031738] shadow-xl hover:bg-gray-50 transition-all active:scale-95"
+            className="absolute -right-2 md:-right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-11 md:h-11 bg-white border border-gray-200 rounded-full flex items-center justify-center text-[#031738] shadow-xl"
           >
             <ChevronRight size={20} />
           </button>

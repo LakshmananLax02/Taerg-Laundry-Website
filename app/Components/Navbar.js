@@ -13,10 +13,10 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Campus Solutions', href: '/#campus-solutions' },
-    { name: 'About Taerg', href: '/about' },
-    { name: 'Success Stories', href: '/#success-stories' },
-    { name: 'Insights', href: '/#insights' },
+    { name: 'Our Services', href: '/#campus-solutions' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Testimonials', href: '/#success-stories' },
+    { name: 'Blogs', href: '/#insights' },
   ];
 
   // Subtle elevation on scroll

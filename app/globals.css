@@ -145,16 +145,6 @@ body {
   animation: process-step-image-enter 550ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes action-button-sweep {
-  from {
-    transform: translateX(-125%);
-  }
-
-  to {
-    transform: translateX(165%);
-  }
-}
-
 .action-ripple {
   --sweep-color: rgba(255, 255, 255, 0.14);
   --button-glow: rgba(19, 54, 99, 0.35);
@@ -168,41 +158,15 @@ body {
   border: 0;
   border-radius: 0.375rem;
   cursor: pointer;
-  transition:
-    transform 200ms ease,
-    filter 200ms ease,
-    box-shadow 200ms ease;
 }
 
 .action-ripple::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset-block: 0;
-  left: 0;
-  width: 58%;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--sweep-color) 18%,
-    transparent 18%,
-    transparent 31%,
-    var(--sweep-color) 31%,
-    var(--sweep-color) 49%,
-    transparent 49%,
-    transparent 62%,
-    var(--sweep-color) 62%,
-    transparent 82%
-  );
-  transform: translateX(-125%);
-  animation: action-button-sweep 2.2s ease-in-out infinite alternate;
+  content: none;
 }
 
 .action-ripple > svg {
   position: relative;
   z-index: 1;
-  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .action-ripple::after {
@@ -213,28 +177,24 @@ body {
   border: 1px solid transparent;
   border-radius: calc(0.375rem - 1px);
   pointer-events: none;
-  transition:
-    inset 220ms ease,
-    border-color 220ms ease;
 }
 
 .action-ripple:hover {
-  filter: brightness(1.06);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 26px -10px var(--button-glow);
+  filter: none;
+  transform: none;
 }
 
 .action-ripple:hover::after {
-  inset: 3px;
-  border-color: var(--button-highlight);
+  inset: 1px;
+  border-color: transparent;
 }
 
 .action-ripple:hover > svg {
-  transform: translateX(2px) scale(1.12);
+  transform: none;
 }
 
 .action-ripple:active {
-  transform: translateY(0) scale(0.96);
+  transform: none;
 }
 
 .action-ripple--call {
@@ -257,21 +217,50 @@ body {
   color: #ffffff;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  button:not(:disabled) {
-    transition-property: scale, filter, background-color, border-color, box-shadow, opacity;
-    transition-duration: 220ms;
-    transition-timing-function: ease;
-  }
+/* Subtle button feedback without sweep, lifting, or icon movement. */
+button *,
+.action-ripple * {
+  animation: none !important;
+  transition: none !important;
+}
 
-  button:not(:disabled):hover {
-    scale: 1.06;
-    filter: brightness(1.06);
-  }
+button:not(:disabled),
+.action-ripple {
+  animation: none !important;
+  scale: 1;
+  transition:
+    scale 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease !important;
+}
 
-  button:not(:disabled):active {
-    scale: 0.95;
-  }
+button:not(:disabled):hover {
+  scale: 1.04;
+  filter: brightness(0.96);
+}
+
+button:not(:disabled):active {
+  scale: 0.98;
+}
+
+.action-ripple::after {
+  transition: border-color 160ms ease;
+}
+
+.action-ripple:hover {
+  scale: 1.04;
+  filter: brightness(0.96);
+  box-shadow: 0 8px 20px -12px var(--button-glow);
+}
+
+.action-ripple:active {
+  scale: 0.98;
+}
+
+.action-ripple:hover::after {
+  border-color: var(--button-highlight);
 }
 
 /* Custom Scrollbar Styling */

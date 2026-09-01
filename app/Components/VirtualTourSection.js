@@ -47,7 +47,7 @@ export default function VirtualTourSection() {
                 <button
                   onClick={() => setIsPlaying(false)}
                   aria-label="Close video"
-                  className="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center transition-all border border-white/20 shadow-md"
+                  className="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center border border-white/20 shadow-md"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -79,9 +79,7 @@ export default function VirtualTourSection() {
                     aria-label="Play Virtual Tour Video"
                     className="group/btn relative flex items-center justify-center"
                   >
-                    <span className="absolute w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-500/30 animate-ping pointer-events-none" />
-                    
-                    <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white text-[#0a1b3d] shadow-md flex items-center justify-center transition-all duration-300 group-hover/btn:scale-105 group-hover/btn:bg-blue-600 group-hover/btn:text-white">
+                    <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white text-[#0a1b3d] shadow-md flex items-center justify-center">
                       <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-0.5" />
                     </div>
                   </button>

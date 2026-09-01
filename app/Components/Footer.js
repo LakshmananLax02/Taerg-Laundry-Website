@@ -232,9 +232,9 @@ export default function Footer() {
               type="button"
               onClick={scrollToTop}
               aria-label="Back to top"
-              className="group flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-[#FFDE6A]/60 hover:text-[#FFDE6A]"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white"
             >
-              <ArrowUp size={14} className="transition-transform duration-300 group-hover:-translate-y-0.5" />
+              <ArrowUp size={14} />
             </button>
           </div>
         </ScrollReveal>

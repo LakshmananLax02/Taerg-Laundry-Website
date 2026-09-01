@@ -182,7 +182,7 @@ export default function HowItWorksSection() {
                   onClick={() => scrollToStep(activeStep - 1)}
                   disabled={activeStep === 0}
                   aria-label="Previous process step"
-                  className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-black/35 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-black/55 disabled:cursor-not-allowed disabled:opacity-35 sm:h-11 sm:w-11"
+                  className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-black/35 text-white shadow-lg backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-35 sm:h-11 sm:w-11"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
@@ -191,7 +191,7 @@ export default function HowItWorksSection() {
                   onClick={() => scrollToStep(activeStep + 1)}
                   disabled={activeStep === steps.length - 1}
                   aria-label="Next process step"
-                  className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-black/35 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-black/55 disabled:cursor-not-allowed disabled:opacity-35 sm:h-11 sm:w-11"
+                  className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-black/35 text-white shadow-lg backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-35 sm:h-11 sm:w-11"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>
