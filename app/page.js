@@ -20,8 +20,8 @@ export default function Home() {
       <ScrollReveal direction="up"><CampusSolutionsShowcase/></ScrollReveal>
       <WhyChoose/>
       <ScrollReveal direction="up"><HowItWorksSection/></ScrollReveal>
-      <ScrollReveal direction="up"><Testimonial/></ScrollReveal>
-      <ScrollReveal direction="scale"><Partners/></ScrollReveal>
+      {/* <ScrollReveal direction="up"><Testimonial/></ScrollReveal> */}
+      {/* <ScrollReveal direction="scale"><Partners/></ScrollReveal> */}
     </>
   );
 }

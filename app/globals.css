@@ -316,39 +316,78 @@ button:not(:disabled):active {
   font-weight: 400;
 }
 
-@keyframes carousel-white-sweep {
-  0%,
-  12% {
-    transform: translate3d(-135%, 0, 0) skewX(-12deg);
+@keyframes carousel-slide-in-from-left {
+  from {
+    opacity: 0.45;
+    transform: translate3d(-100%, 0, 0);
   }
 
-  58%,
-  100% {
-    transform: translate3d(135%, 0, 0) skewX(-12deg);
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
-.carousel-card-shimmer {
-  isolation: isolate;
+@keyframes carousel-slide-out-to-right {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0.45;
+    transform: translate3d(100%, 0, 0);
+  }
 }
 
-.carousel-card-shimmer::after {
-  content: "";
-  position: absolute;
-  z-index: 5;
-  inset: -15% -45%;
-  pointer-events: none;
-  background: linear-gradient(
-    105deg,
-    transparent 39%,
-    rgba(255, 255, 255, 0.025) 44%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(174, 197, 228, 0.08) 55%,
-    transparent 61%
-  );
-  transform: translate3d(-135%, 0, 0) skewX(-12deg);
-  animation: carousel-white-sweep 3s ease-in-out infinite;
-  will-change: transform;
+@keyframes carousel-slide-in-from-right {
+  from {
+    opacity: 0.45;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes carousel-slide-out-to-left {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0.45;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.carousel-slide-in-from-left,
+.carousel-slide-out-to-right,
+.carousel-slide-in-from-right,
+.carousel-slide-out-to-left {
+  animation-duration: 700ms;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.carousel-slide-in-from-left {
+  animation-name: carousel-slide-in-from-left;
+}
+
+.carousel-slide-out-to-right {
+  animation-name: carousel-slide-out-to-right;
+}
+
+.carousel-slide-in-from-right {
+  animation-name: carousel-slide-in-from-right;
+}
+
+.carousel-slide-out-to-left {
+  animation-name: carousel-slide-out-to-left;
 }
 
 @keyframes testimonial-card-colors {
@@ -671,7 +710,10 @@ button:not(:disabled):active {
     animation-play-state: paused;
   }
 
-  .carousel-card-shimmer::after {
+  .carousel-slide-in-from-left,
+  .carousel-slide-out-to-right,
+  .carousel-slide-in-from-right,
+  .carousel-slide-out-to-left {
     animation: none;
   }
 

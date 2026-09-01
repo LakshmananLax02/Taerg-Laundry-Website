@@ -94,13 +94,13 @@ export default function LaundryBenefits() {
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <Image
-          src="/images/carouselimg1.png"
+          src="/images/carousel3.png"
           alt="Modern campus laundry facility"
           fill
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020A17]/75 via-[#031738]/70 to-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020A17]/15 via-[#031738]/10 to-black/15" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_10%,rgba(0,0,0,0.48)_100%)]" />
       </div>
 

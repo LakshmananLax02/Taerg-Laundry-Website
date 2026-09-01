@@ -47,7 +47,7 @@ export default function Navbar() {
           {/* Brand Logo (Left Side) */}
           <Link
             href="/"
-            className="flex shrink-0 items-center transition-opacity hover:opacity-80"
+            className="flex shrink-0 items-center transition-opacity"
             aria-label="TaerG Campus Laundry home"
           >
             <Image
