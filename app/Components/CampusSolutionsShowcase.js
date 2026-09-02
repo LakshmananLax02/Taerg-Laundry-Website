@@ -44,7 +44,7 @@ export default function CampusSolutionsShowcase() {
   return (
     <section
       id="campus-solutions"
-      className="relative overflow-hidden bg-[#f5f8fc] px-4 py-14 sm:px-6 md:py-20 lg:px-10"
+      className="relative overflow-hidden bg-[#f5f8fc] px-4 py-10 sm:px-6 md:py-10 lg:px-10"
     >
       <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-blue-200/35 blur-[100px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 rounded-full bg-[#0b3475]/10 blur-[110px]" />

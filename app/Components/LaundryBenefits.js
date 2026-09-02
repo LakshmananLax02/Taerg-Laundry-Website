@@ -140,19 +140,35 @@ export default function LaundryBenefits() {
                   cardRefs.current[index] = element;
                 }}
                 data-benefit-index={index}
-                className={`flex min-h-[68vh] items-center ${
-                  index % 2 === 0 ? 'justify-start' : 'justify-end'
+                className={`flex min-h-[58vh] items-center justify-center ${
+                  index % 2 === 0 ? 'lg:justify-start' : 'lg:justify-end'
                 }`}
               >
                 <article
                   className="group relative w-full max-w-2xl overflow-hidden rounded-3xl border border-white/15 bg-black/45 p-5 shadow-2xl backdrop-blur-md transition-[border-color,background-color] duration-500 hover:border-white/30 hover:bg-black/55 sm:p-7"
                   style={{
-                    opacity: 0.18 + cardProgress[index] * 0.82,
-                    transform: `translate3d(${(index % 2 === 0 ? -1 : 1) * (1 - cardProgress[index]) * 110}vw, 0, 0)`,
-                    willChange: cardProgress[index] < 1 ? 'transform, opacity' : 'auto',
+                    opacity: 0.38 + cardProgress[index] * 0.62,
+                    transform: `scale(${0.965 + cardProgress[index] * 0.035})`,
+                    filter: `blur(${(1 - cardProgress[index]) * 2.5}px)`,
+                    willChange:
+                      cardProgress[index] < 1
+                        ? 'transform, opacity, filter'
+                        : 'auto',
                   }}
                 >
-                  <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 select-none text-[7rem] font-black leading-none text-white/[0.055] sm:right-8 sm:text-[10rem]">
+                  <div
+                    className="pointer-events-none absolute inset-x-0 top-0 h-[2px] origin-left bg-gradient-to-r from-blue-400 via-white/90 to-[#FFDE6A]"
+                    style={{
+                      transform: `scaleX(${cardProgress[index]})`,
+                      opacity: 0.35 + cardProgress[index] * 0.65,
+                    }}
+                    aria-hidden="true"
+                  />
+
+                  <span
+                    className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 select-none text-[7rem] font-black leading-none text-white sm:right-8 sm:text-[10rem]"
+                    style={{ opacity: 0.035 + cardProgress[index] * 0.035 }}
+                  >
                     {String(index + 1).padStart(2, '0')}
                   </span>
 

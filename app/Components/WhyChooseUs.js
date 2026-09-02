@@ -35,8 +35,7 @@ const reasons = [
 ];
 
 export default function WhyChoose() {
-  const [activeReason, setActiveReason] = useState(0);
-  const [hasEntered, setHasEntered] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const trackRef = useRef(null);
 
   useEffect(() => {
@@ -54,23 +53,9 @@ export default function WhyChoose() {
         const rect = track.getBoundingClientRect();
         const scrollRange = Math.max(track.offsetHeight - window.innerHeight, 1);
         const progress = Math.min(0.9999, Math.max(0, -rect.top / scrollRange));
-        const nextReason = Math.min(
-          reasons.length - 1,
-          Math.floor(progress * reasons.length),
+        setScrollProgress((current) =>
+          Math.abs(current - progress) < 0.0005 ? current : progress,
         );
-        const isEngaged =
-          rect.top <= window.innerHeight * 0.35 &&
-          rect.bottom >= window.innerHeight * 0.35;
-
-        setHasEntered((current) =>
-          current === isEngaged ? current : isEngaged,
-        );
-
-        if (isEngaged) {
-          setActiveReason((current) =>
-            current === nextReason ? current : nextReason,
-          );
-        }
       });
     };
 
@@ -85,6 +70,11 @@ export default function WhyChoose() {
       if (frameId !== null) window.cancelAnimationFrame(frameId);
     };
   }, []);
+
+  const activeReason = Math.min(
+    reasons.length - 1,
+    Math.max(0, Math.round(scrollProgress * reasons.length - 1)),
+  );
 
   return (
     <section className="relative isolate bg-[#020A17] font-sans text-white">
@@ -121,22 +111,30 @@ export default function WhyChoose() {
 
           {reasons.map((reason, index) => {
             const isActive = index === activeReason;
-            const isRevealed = hasEntered && index <= activeReason;
-            const contentEntryClass = reason.reverse
-              ? 'translate-x-[105%]'
-              : '-translate-x-[105%]';
+            const relativePosition =
+              index + 1 - scrollProgress * reasons.length;
+            const distanceFromCenter = Math.abs(relativePosition);
+            const cardOpacity = Math.max(
+              0,
+              Math.min(1, 1 - distanceFromCenter * 0.65),
+            );
 
             return (
               <article
                 key={reason.number}
                 aria-hidden={!isActive}
                 className="pointer-events-none absolute inset-0 grid grid-cols-1 grid-rows-[52%_48%] lg:grid-cols-12 lg:grid-rows-none"
-                style={{ zIndex: index + 1 }}
+                style={{
+                  zIndex: Math.max(1, 20 - Math.round(distanceFromCenter * 10)),
+                  opacity: cardOpacity,
+                  transform: `translate3d(${relativePosition * 105}%, 0, 0)`,
+                  willChange: 'transform, opacity',
+                }}
               >
                 <div
-                  className={`relative flex h-full min-h-0 flex-col justify-center overflow-hidden px-6 py-8 will-change-transform transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none sm:px-10 lg:col-span-5 lg:px-12 lg:py-10 xl:px-16 xl:py-14 ${
+                  className={`relative flex h-full min-h-0 flex-col justify-center overflow-hidden px-6 py-8 sm:px-10 lg:col-span-5 lg:px-12 lg:py-10 xl:px-16 xl:py-14 ${
                     reason.reverse ? 'lg:order-2' : ''
-                  } ${isRevealed ? 'translate-x-0' : contentEntryClass}`}
+                  }`}
                   style={{ backgroundColor: reason.background }}
                 >
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] [background-size:54px_54px]" />
@@ -176,9 +174,9 @@ export default function WhyChoose() {
                 </div>
 
                 <div
-                  className={`relative h-full min-h-0 overflow-hidden will-change-transform transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none lg:col-span-7 ${
+                  className={`relative h-full min-h-0 overflow-hidden lg:col-span-7 ${
                     reason.reverse ? 'lg:order-1' : ''
-                  } ${isRevealed ? 'translate-y-0' : 'translate-y-[105%]'}`}
+                  }`}
                   style={{ backgroundColor: reason.background }}
                 >
                   <div className="absolute inset-x-4 bottom-4 top-0 overflow-hidden rounded-2xl border border-white/15 sm:inset-x-6 sm:bottom-6 lg:inset-8">
