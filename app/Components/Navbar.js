@@ -13,10 +13,10 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Our Services', href: '/#campus-solutions' },
+    { name: 'Our Services', href: '/our-services' },
     { name: 'About Us', href: '/about' },
-    { name: 'Testimonials', href: '/#success-stories' },
-    { name: 'Blogs', href: '/#insights' },
+    { name: 'Testimonials', href: '/testimonials' },
+    { name: 'Blogs', href: '/blogs' },
   ];
 
   // Subtle elevation on scroll
