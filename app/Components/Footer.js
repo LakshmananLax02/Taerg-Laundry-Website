@@ -21,10 +21,10 @@ const quickLinks = [
 ];
 
 const solutions = [
-  { label: 'Campus Laundry Service', href: '/about' },
-  { label: 'Commercial Laundry Machines', href: '#partners' },
-  { label: 'Setup & Installation', href: '#campus-benefits' },
-  { label: 'Service & Maintenance', href: '#campus-benefits' },
+  { label: 'Campus Laundry Service', href: '/our-services#services' },
+  { label: 'Commercial Laundry Machines', href: '/our-services#services' },
+  { label: 'Setup & Installation', href: '/our-services#services' },
+  { label: 'Service & Maintenance', href: '/our-services#services' },
 ];
 
 const company = [

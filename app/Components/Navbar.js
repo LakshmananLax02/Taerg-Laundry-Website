@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [activeTab, setActiveTab] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -64,16 +63,12 @@ export default function Navbar() {
           <div className="hidden md:flex items-center justify-center flex-1 mx-5 lg:mx-8">
             <nav className="flex items-center gap-6 lg:gap-9">
               {navLinks.map((link) => {
-                const isActive =
-                  pathname === '/about'
-                    ? link.name === 'About Taerg'
-                    : activeTab === link.name;
+                const isActive = pathname === link.href;
 
                 return (
-                  <a
+                  <Link
                     key={link.name}
                     href={link.href}
-                    onClick={() => setActiveTab(link.name)}
                     className={`relative py-2 text-sm lg:text-[15px] font-semibold tracking-[-0.01em] transition-colors duration-200 ${
                       isActive
                         ? 'text-[#0B2545]'
@@ -86,7 +81,7 @@ export default function Navbar() {
                         isActive ? 'scale-x-100' : 'scale-x-0'
                       }`}
                     />
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
@@ -142,16 +137,12 @@ export default function Navbar() {
         >
           <div className="flex flex-col pb-2">
             {navLinks.map((link) => {
-              const isActive =
-                pathname === '/about'
-                  ? link.name === 'About Taerg'
-                  : activeTab === link.name;
+              const isActive = pathname === link.href;
               return (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => {
-                    setActiveTab(link.name);
                     setIsMobileMenuOpen(false);
                   }}
                   className={`border-l-2 px-4 py-3 text-[15px] font-semibold transition-colors ${
@@ -161,7 +152,7 @@ export default function Navbar() {
                   }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               );
             })}
             <a
