@@ -5,7 +5,6 @@ import {
   BarChart3,
   Building2,
   Check,
-  Clock3,
   ShieldCheck,
   Shirt,
   Truck,
@@ -89,29 +88,6 @@ const services = [
   },
 ];
 
-const process = [
-  {
-    number: '01',
-    title: 'Understand',
-    text: 'We assess your campus, student strength, service expectations and operational constraints.',
-  },
-  {
-    number: '02',
-    title: 'Design',
-    text: 'We create the right infrastructure, collection model and operating plan for your institution.',
-  },
-  {
-    number: '03',
-    title: 'Operate',
-    text: 'Our team runs each stage with clear routines, quality checks and dependable turnaround.',
-  },
-  {
-    number: '04',
-    title: 'Improve',
-    text: 'Ongoing reporting and support help the service stay reliable as campus requirements grow.',
-  },
-];
-
 const faqs = [
   {
     question: 'Can Taerg set up a new laundry facility on our campus?',
@@ -138,280 +114,195 @@ const faqs = [
 export default function OurServicesPage() {
   return (
     <div className="overflow-hidden bg-white font-sans text-[#031738]">
-      <section className="relative isolate overflow-hidden bg-[#020f26] px-5 pb-12 pt-32 text-white sm:px-8 sm:pb-16 sm:pt-36 lg:px-12 lg:pb-20 lg:pt-40">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.07)_1px,transparent_1px)] [background-size:58px_58px] [mask-image:linear-gradient(to_bottom,#000_20%,transparent_92%)]" />
-        <div className="pointer-events-none absolute -left-24 top-20 h-96 w-96 rounded-full bg-[#174b95]/30 blur-[120px]" />
-        <div className="pointer-events-none absolute right-0 top-0 h-[34rem] w-[34rem] rounded-full bg-[#0b3475]/35 blur-[140px]" />
+      <section className="relative isolate flex h-[50svh] min-h-[340px] max-h-[480px] items-center justify-center overflow-hidden bg-[#020f26] px-5 pb-8 pt-28 text-center text-white sm:px-8 sm:pb-10 sm:pt-32 lg:px-12">
+        <Image
+          src="/images/carousel4.png"
+          alt="Taerg team delivering professional campus laundry services"
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover object-center"
+        />
+        <div className="absolute inset-0 -z-10 bg-[#020f26]/55" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-36 bg-gradient-to-t from-[#020f26]/65 to-transparent" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-blue-200/20 bg-white/[0.06] px-4 py-2 text-xs font-semibold uppercase tracking-[0.19em] text-blue-100 backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-[#ffde6a] shadow-[0_0_12px_rgba(255,222,106,0.8)]" />
-              Our Services
+        <div className="mx-auto max-w-4xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-blue-200 sm:text-sm">
+            Complete campus laundry solutions
+          </p>
+          <h1 className="mt-4 text-[clamp(2.75rem,7vw,6rem)] font-semibold leading-none tracking-[-0.055em] text-white">
+            Our Services
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl text-sm font-light leading-6 text-slate-200 sm:text-base sm:leading-7">
+            From infrastructure and installation to daily operations and student delivery, Taerg manages every stage of campus laundry.
+          </p>
+        </div>
+      </section>
+
+      <section id="services" className="relative scroll-mt-24 bg-[#f5f8fc] px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#031738] px-4 py-1.5 text-xs font-medium tracking-wide text-white">
+              <span className="h-2 w-2 rounded-full bg-blue-400" />
+              Complete Service Portfolio
             </span>
-
-            <h1 className="mt-6 max-w-3xl text-[clamp(2.65rem,6vw,5.6rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-white">
-              Every campus laundry need,
-              <span className="block text-blue-300">handled as one.</span>
-            </h1>
-
-            <p className="mt-6 max-w-xl text-base font-light leading-7 text-slate-300 sm:text-lg sm:leading-8">
-              From planning and commercial machines to daily garment care and ongoing support, Taerg delivers a complete laundry ecosystem for educational institutions.
+            <h2 className="section-topic mx-auto mt-4 text-[#031738]">
+              Built for Campus. Managed by Taerg.
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm font-light leading-7 text-slate-600 sm:text-base">
+              Choose the support your institution needs or bring every layer together as one fully managed campus laundry solution.
             </p>
+          </div>
+        </div>
+      </section>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#services"
-                className="action-ripple action-ripple--call gap-2 px-6 py-3 text-sm font-semibold"
+      {services.map((service, index) => {
+        const Icon = service.icon;
+        const imageFirst = index % 2 === 1;
+
+        return (
+          <section
+            key={service.number}
+            className={`group px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20 ${
+              index % 2 === 0 ? 'bg-white' : 'bg-[#f5f8fc]'
+            }`}
+          >
+            <div className="mx-auto grid max-w-7xl items-center gap-9 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+              <div
+                className={`order-2 flex flex-col justify-center ${
+                  imageFirst ? 'lg:order-2' : 'lg:order-1'
+                }`}
               >
-                Explore our services
-                <ArrowRight size={17} aria-hidden="true" />
-              </a>
-              <a
-                href="#contact"
-                className="action-ripple gap-2 border border-white/20 bg-white/[0.06] px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm"
+                <div className="flex items-center justify-center gap-4 lg:justify-start">
+                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#061c3f] text-white transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14">
+                    <Icon size={24} strokeWidth={1.7} aria-hidden="true" />
+                  </div>
+                  <div className="h-px w-10 bg-[#245da6]/45" />
+                  <span className="text-xs font-semibold tracking-[0.18em] text-[#245da6]">
+                    {service.number}
+                  </span>
+                </div>
+
+                <p className="mt-7 text-xs font-semibold uppercase tracking-[0.17em] text-[#245da6]">
+                  {service.audience}
+                </p>
+                <h3 className="mt-3 max-w-xl text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.04] tracking-[-0.05em] text-[#031738]">
+                  {service.title}
+                </h3>
+                <p className="mt-5 max-w-xl text-sm font-light leading-7 text-slate-600 sm:text-base sm:leading-8">
+                  {service.description}
+                </p>
+
+                <ul className="mt-7 space-y-3">
+                  {service.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-3 text-sm font-medium text-slate-600 sm:text-base">
+                      <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-blue-50 text-[#245da6]">
+                        <Check size={13} strokeWidth={2.4} aria-hidden="true" />
+                      </span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div
+                className={`relative order-1 mx-auto aspect-[4/3] w-full min-w-0 max-w-full overflow-hidden rounded-xl bg-[#061c3f] shadow-[0_28px_70px_-42px_rgba(3,23,56,0.62)] sm:aspect-[16/10] ${
+                  imageFirst ? 'lg:order-1' : 'lg:order-2'
+                }`}
               >
-                Plan your campus setup
-              </a>
+                <Image
+                  src={service.image}
+                  alt={service.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#020f26]/35 to-transparent" />
+                <span className="absolute bottom-5 right-6 text-4xl font-semibold tracking-[-0.06em] text-white/65 sm:text-5xl">
+                  {service.number}
+                </span>
+              </div>
             </div>
+          </section>
+        );
+      })}
+
+      <section className="relative isolate overflow-hidden bg-[#031738] px-5 py-16 text-white sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+        <Image
+          src="/images/carousel2.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="-z-20 object-cover object-center opacity-[0.13] grayscale"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(36,93,166,0.22),transparent_48%),linear-gradient(90deg,rgba(3,23,56,0.98),rgba(3,23,56,0.82),rgba(3,23,56,0.98))]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,#000_10%,transparent_78%)]" />
+
+        <div className="relative mx-auto max-w-7xl">
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-medium text-blue-100 backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-[#ffde6a]" />
+              One Service. Two Clear Outcomes.
+            </span>
+            <h2 className="section-topic mx-auto mt-5 max-w-3xl text-white">
+              Laundry that works for the whole campus.
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm font-light leading-7 text-slate-300 sm:text-base">
+              Taerg connects everyday student convenience with the operational confidence campus teams need.
+            </p>
           </div>
 
-          <div className="relative mx-auto w-full max-w-2xl lg:mx-0">
-            <div className="relative aspect-[1.12/1] overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#071a37] shadow-[0_32px_100px_-35px_rgba(0,0,0,0.95)] sm:aspect-[1.35/1] lg:aspect-[1.08/1]">
-              <Image
-                src="/images/carousel4.png"
-                alt="Taerg professionals operating a modern campus laundry facility"
-                fill
-                priority
-                sizes="(min-width: 1024px) 48vw, 92vw"
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020f26]/80 via-transparent to-transparent" />
+          <div className="mt-12 grid items-center gap-9 md:grid-cols-[1fr_auto_1fr] md:gap-7 lg:mt-16 lg:gap-12">
+            <article className="text-center md:text-right">
+              <div className="mx-auto grid h-12 w-12 place-items-center rounded-full border border-blue-300/25 bg-blue-400/10 text-blue-200 md:ml-auto md:mr-0">
+                <Users size={22} strokeWidth={1.7} aria-hidden="true" />
+              </div>
+              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">For students</p>
+              <h3 className="mt-2 text-2xl font-semibold tracking-[-0.035em] text-white sm:text-3xl">More time for campus life.</h3>
+              <p className="mt-4 ml-auto max-w-md text-sm font-light leading-7 text-slate-300 sm:text-base">
+                Simple access, predictable collection and clean, folded clothes returned around academic schedules.
+              </p>
+              <div className="mt-5 flex flex-wrap justify-center gap-2 md:justify-end">
+                <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">Easy access</span>
+                <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">Dependable return</span>
+              </div>
+            </article>
 
-              <div className="absolute inset-x-5 bottom-5 grid grid-cols-3 gap-2 rounded-2xl border border-white/15 bg-[#031738]/80 p-3 backdrop-blur-md sm:inset-x-7 sm:bottom-7 sm:gap-4 sm:p-4">
-                {[
-                  ['01', 'Plan'],
-                  ['02', 'Install'],
-                  ['03', 'Manage'],
-                ].map(([number, label]) => (
-                  <div key={label} className="border-r border-white/10 last:border-0">
-                    <p className="text-[0.65rem] font-semibold tracking-[0.18em] text-blue-300">{number}</p>
-                    <p className="mt-1 text-xs font-medium text-white sm:text-sm">{label}</p>
-                  </div>
-                ))}
+            <div className="relative mx-auto flex items-center justify-center md:h-64 md:w-28">
+              <span className="absolute hidden h-px w-[calc(100vw-8rem)] max-w-5xl bg-gradient-to-r from-transparent via-blue-300/25 to-transparent md:block" />
+              <span className="absolute hidden h-64 w-px bg-gradient-to-b from-transparent via-blue-300/30 to-transparent md:block" />
+              <div className="relative z-10 grid h-24 w-24 place-items-center rounded-full border border-blue-200/25 bg-[#08244d] shadow-[0_0_0_10px_rgba(59,130,246,0.06),0_20px_50px_rgba(0,0,0,0.35)]">
+                <WashingMachine size={35} strokeWidth={1.45} className="text-white" aria-hidden="true" />
+                <span className="absolute -bottom-2 rounded-full bg-[#ffde6a] px-3 py-1 text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#031738]">
+                  Taerg
+                </span>
               </div>
             </div>
 
-            <div className="absolute -left-3 top-8 rounded-2xl border border-blue-300/20 bg-[#08244d]/90 px-4 py-3 shadow-xl backdrop-blur-xl sm:-left-6 sm:top-10 sm:px-5">
-              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-blue-200">One partner</p>
-              <p className="mt-1 text-sm font-semibold text-white sm:text-base">End-to-end delivery</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative mx-auto mt-12 grid max-w-7xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-4 lg:mt-16">
-          {[
-            ['6', 'Connected services'],
-            ['360°', 'Campus support'],
-            ['1', 'Accountable partner'],
-            ['All', 'Campus needs covered'],
-          ].map(([value, label]) => (
-            <div key={label} className="bg-[#04152f]/90 px-4 py-5 text-center sm:px-6">
-              <p className="text-2xl font-semibold tracking-[-0.04em] text-white sm:text-3xl">{value}</p>
-              <p className="mt-1 text-[0.68rem] uppercase tracking-[0.14em] text-slate-400 sm:text-xs">{label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="services" className="relative scroll-mt-24 bg-[#f5f8fc] px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
-        <div className="pointer-events-none absolute left-0 top-32 h-80 w-80 rounded-full bg-blue-200/30 blur-[110px]" />
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-6 border-b border-slate-200 pb-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#245da6]">Complete service portfolio</p>
-              <h2 className="section-topic mt-4 text-[#031738]">Built for campus. Managed by Taerg.</h2>
-            </div>
-            <p className="max-w-2xl text-sm font-light leading-7 text-slate-600 sm:text-base lg:justify-self-end lg:text-lg lg:leading-8">
-              Choose the support your institution needs today, or combine every layer into one fully managed campus laundry solution.
-            </p>
-          </div>
-
-          <div className="mt-10 space-y-6 lg:mt-14 lg:space-y-8">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              const imageFirst = index % 2 === 1;
-
-              return (
-                <article
-                  key={service.number}
-                  className="group grid overflow-hidden rounded-[1.75rem] border border-[#173c78]/15 bg-white shadow-[0_26px_70px_-42px_rgba(3,23,56,0.58)] lg:min-h-[480px] lg:grid-cols-2"
-                >
-                  <div
-                    className={`relative order-2 flex flex-col justify-center overflow-hidden p-6 sm:p-9 lg:p-12 xl:p-14 ${
-                      imageFirst ? 'lg:order-2' : 'lg:order-1'
-                    }`}
-                  >
-                    <div className="pointer-events-none absolute -right-5 -top-10 text-[10rem] font-semibold leading-none tracking-[-0.08em] text-[#031738]/[0.035] sm:text-[12rem]">
-                      {service.number}
-                    </div>
-
-                    <div className="relative flex items-center gap-4">
-                      <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#061c3f] text-white shadow-[0_12px_26px_-14px_rgba(3,23,56,0.8)] transition-transform duration-300 group-hover:scale-105">
-                        <Icon size={25} strokeWidth={1.7} aria-hidden="true" />
-                      </div>
-                      <div>
-                        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#245da6]">
-                          Service {service.number}
-                        </p>
-                        <p className="mt-1 text-[0.68rem] font-medium uppercase tracking-[0.13em] text-slate-400">
-                          {service.audience}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="relative mt-7 max-w-xl">
-                      <h3 className="text-[clamp(1.75rem,3vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.045em] text-[#031738]">
-                        {service.title}
-                      </h3>
-                      <p className="mt-5 text-sm font-light leading-7 text-slate-600 sm:text-base">
-                        {service.description}
-                      </p>
-                    </div>
-
-                    <ul className="relative mt-7 grid gap-3 border-t border-slate-200 pt-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                      {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2.5 text-xs font-medium text-slate-600 sm:text-sm">
-                          <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blue-50 text-[#245da6]">
-                            <Check size={12} strokeWidth={2.4} aria-hidden="true" />
-                          </span>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div
-                    className={`relative order-1 min-h-[280px] overflow-hidden sm:min-h-[360px] lg:min-h-full ${
-                      imageFirst ? 'lg:order-1' : 'lg:order-2'
-                    }`}
-                  >
-                    <Image
-                      src={service.image}
-                      alt={service.imageAlt}
-                      fill
-                      sizes="(min-width: 1024px) 50vw, 100vw"
-                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#020f26]/75 via-transparent to-transparent" />
-
-                    <div className="absolute inset-x-5 bottom-5 flex items-end justify-between gap-4 rounded-2xl border border-white/15 bg-[#031738]/72 p-4 text-white backdrop-blur-md sm:inset-x-7 sm:bottom-7 sm:p-5">
-                      <div>
-                        <p className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-blue-200">Taerg Campus Laundry</p>
-                        <p className="mt-1.5 text-sm font-medium sm:text-base">{service.audience}</p>
-                      </div>
-                      <span className="text-3xl font-semibold tracking-[-0.05em] text-white/35 sm:text-4xl">
-                        {service.number}
-                      </span>
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
-        <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] border border-[#173c78]/15 bg-white shadow-[0_30px_85px_-42px_rgba(3,23,56,0.58)] lg:grid-cols-2">
-          <div className="relative min-h-[390px] overflow-hidden sm:min-h-[520px] lg:min-h-[690px]">
-            <Image
-              src="/images/carousel2.png"
-              alt="Taerg team collecting laundry from students on campus"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#020f26]/85 via-[#020f26]/10 to-transparent" />
-            <div className="absolute inset-x-6 bottom-6 rounded-2xl border border-white/15 bg-[#031738]/80 p-5 text-white backdrop-blur-md sm:inset-x-8 sm:bottom-8 sm:p-6">
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-blue-200">Made for real campus routines</p>
-              <p className="mt-2 max-w-md text-xl font-medium leading-snug tracking-[-0.03em] sm:text-2xl">
-                Dependable for management. Effortless for students.
+            <article className="text-center md:text-left">
+              <div className="mx-auto grid h-12 w-12 place-items-center rounded-full border border-blue-300/25 bg-blue-400/10 text-blue-200 md:ml-0 md:mr-auto">
+                <BarChart3 size={22} strokeWidth={1.7} aria-hidden="true" />
+              </div>
+              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">For campus management</p>
+              <h3 className="mt-2 text-2xl font-semibold tracking-[-0.035em] text-white sm:text-3xl">Clearer operational control.</h3>
+              <p className="mt-4 max-w-md text-sm font-light leading-7 text-slate-300 sm:text-base">
+                One accountable partner, defined standards, dependable infrastructure and clearer service oversight.
               </p>
-            </div>
+              <div className="mt-5 flex flex-wrap justify-center gap-2 md:justify-start">
+                <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">One partner</span>
+                <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">Visible standards</span>
+              </div>
+            </article>
           </div>
 
-          <div className="flex flex-col justify-center bg-[#f7f9fc] p-6 sm:p-10 lg:p-12 xl:p-16">
-            <span className="w-fit rounded-full bg-[#031738] px-4 py-1.5 text-xs font-medium text-white">One service, two clear outcomes</span>
-            <h2 className="section-topic mt-5 text-[#031738]">Laundry that works for the whole campus.</h2>
-            <p className="mt-5 text-sm font-light leading-7 text-slate-600 sm:text-base">
-              Taerg connects student convenience with the control and accountability institutional teams need.
-            </p>
-
-            <div className="mt-8 space-y-4">
-              <OutcomeCard
-                icon={Users}
-                title="For students"
-                text="Simple access, predictable collection and clean, folded clothes returned around academic schedules."
-              />
-              <OutcomeCard
-                icon={BarChart3}
-                title="For campus management"
-                text="One operating partner, defined service standards, dependable infrastructure and clearer oversight."
-              />
-              <OutcomeCard
-                icon={ShieldCheck}
-                title="For your institution"
-                text="A professionally managed amenity that strengthens student experience and long-term campus value."
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative isolate overflow-hidden bg-[#031738] px-5 py-16 text-white sm:px-8 sm:py-20 lg:px-12 lg:py-24">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.07)_1px,transparent_1px)] [background-size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,#000_20%,transparent_80%)]" />
-        <div className="pointer-events-none absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-blue-600/15 blur-[120px]" />
-
-        <div className="relative mx-auto max-w-7xl">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] px-4 py-1.5 text-xs font-medium text-blue-100">
-              <Clock3 size={14} aria-hidden="true" />
-              The Taerg service model
-            </span>
-            <h2 className="section-topic mt-5 text-white">From campus need to dependable daily service.</h2>
-            <p className="mx-auto mt-5 max-w-2xl text-sm font-light leading-7 text-slate-300 sm:text-base">
-              A clear operating journey keeps decisions simple and every stakeholder aligned.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {process.map((step, index) => (
-              <article key={step.number} className="relative rounded-2xl border border-white/10 bg-white/[0.045] p-6 backdrop-blur-sm">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold tracking-[0.18em] text-blue-300">{step.number}</span>
-                  {index < process.length - 1 && (
-                    <ArrowRight className="hidden text-white/25 xl:block" size={18} aria-hidden="true" />
-                  )}
-                </div>
-                <h3 className="mt-8 text-xl font-semibold tracking-[-0.025em] text-white">{step.title}</h3>
-                <p className="mt-3 text-sm font-light leading-6 text-slate-300">{step.text}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-8 grid overflow-hidden rounded-[1.5rem] border border-blue-200/15 bg-gradient-to-r from-[#092b5c] via-[#0b3475] to-[#071d42] sm:grid-cols-[1fr_auto] sm:items-center">
-            <div className="p-6 sm:p-8 lg:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">Start with a campus assessment</p>
-              <h3 className="mt-3 max-w-3xl text-2xl font-semibold leading-tight tracking-[-0.035em] text-white sm:text-3xl">
-                Tell us your student capacity. We&apos;ll help shape the right laundry model.
-              </h3>
-            </div>
-            <div className="px-6 pb-6 sm:px-8 sm:pb-0 sm:pl-0">
-              <a href="#contact" className="action-ripple action-ripple--call gap-2 px-6 py-3 text-sm font-semibold">
-                Talk to our team
-                <ArrowRight size={17} aria-hidden="true" />
-              </a>
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 border-t border-white/10 pt-8 text-center sm:flex-row sm:text-left">
+            <ShieldCheck size={30} strokeWidth={1.6} className="shrink-0 text-[#ffde6a]" aria-hidden="true" />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">The shared result</p>
+              <p className="mt-1 text-base font-medium text-white sm:text-lg">
+                A trusted campus amenity that strengthens student experience and long-term institutional value.
+              </p>
             </div>
           </div>
         </div>
@@ -452,19 +343,5 @@ export default function OurServicesPage() {
         </div>
       </section>
     </div>
-  );
-}
-
-function OutcomeCard({ icon: Icon, title, text }) {
-  return (
-    <article className="group flex gap-4 rounded-2xl border border-[#173c78]/10 bg-white p-4 shadow-[0_12px_32px_-26px_rgba(3,23,56,0.55)] transition-[transform,border-color] duration-300 hover:translate-x-1 hover:border-[#245da6]/30 sm:p-5">
-      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#061c3f] text-white transition-transform duration-300 group-hover:scale-105">
-        <Icon size={20} strokeWidth={1.75} aria-hidden="true" />
-      </div>
-      <div>
-        <h3 className="font-semibold tracking-[-0.02em] text-[#031738]">{title}</h3>
-        <p className="mt-1.5 text-xs font-light leading-6 text-slate-600 sm:text-sm">{text}</p>
-      </div>
-    </article>
   );
 }
