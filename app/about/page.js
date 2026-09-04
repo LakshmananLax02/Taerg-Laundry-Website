@@ -1,4 +1,5 @@
 import HeroScrollSequence from '../Components/HeroScrollVideo';
+import AboutUsContent from '../Components/AboutUsContent';
 
 export const metadata = {
   title: 'About Taerg | Taerg Campus Laundry',
@@ -7,5 +8,10 @@ export const metadata = {
 };
 
 export default function AboutTaergPage() {
-  return <HeroScrollSequence />;
+  return (
+    <>
+      <HeroScrollSequence />
+      <AboutUsContent />
+    </>
+  );
 }
