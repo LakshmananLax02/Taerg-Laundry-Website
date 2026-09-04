@@ -167,7 +167,7 @@ export default function OurServicesPage() {
               index % 2 === 0 ? 'bg-white' : 'bg-[#f5f8fc]'
             }`}
           >
-            <div className="mx-auto grid max-w-7xl items-center gap-9 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+            <div className="mx-auto grid max-w-7xl items-stretch gap-9 lg:grid-cols-2 lg:gap-16 xl:gap-24">
               <div
                 className={`order-2 flex flex-col justify-center ${
                   imageFirst ? 'lg:order-2' : 'lg:order-1'
@@ -206,7 +206,7 @@ export default function OurServicesPage() {
               </div>
 
               <div
-                className={`relative order-1 mx-auto aspect-[4/3] w-full min-w-0 max-w-full overflow-hidden rounded-xl bg-[#061c3f] shadow-[0_28px_70px_-42px_rgba(3,23,56,0.62)] sm:aspect-[16/10] ${
+                className={`relative order-1 mx-auto aspect-[4/3] w-full min-w-0 max-w-full overflow-hidden rounded-xl bg-[#061c3f] shadow-[0_28px_70px_-42px_rgba(3,23,56,0.62)] sm:aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[500px] lg:self-stretch ${
                   imageFirst ? 'lg:order-1' : 'lg:order-2'
                 }`}
               >
