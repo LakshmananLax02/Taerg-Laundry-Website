@@ -163,7 +163,7 @@ export default function OurServicesPage() {
         return (
           <section
             key={service.number}
-            className={`group px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20 ${
+            className={`group px-5 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12 ${
               index % 2 === 0 ? 'bg-white' : 'bg-[#f5f8fc]'
             }`}
           >
@@ -206,7 +206,7 @@ export default function OurServicesPage() {
               </div>
 
               <div
-                className={`relative order-1 mx-auto aspect-[4/3] w-full min-w-0 max-w-full overflow-hidden rounded-xl bg-[#061c3f] shadow-[0_28px_70px_-42px_rgba(3,23,56,0.62)] sm:aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[500px] lg:self-stretch ${
+                className={`relative order-1 mx-auto aspect-[4/3] w-full min-w-0 max-w-full overflow-hidden rounded-xl bg-[#061c3f] shadow-[0_28px_70px_-42px_rgba(3,23,56,0.62)] sm:aspect-[16/10] lg:aspect-auto lg:h-full lg:self-stretch ${
                   imageFirst ? 'lg:order-1' : 'lg:order-2'
                 }`}
               >
